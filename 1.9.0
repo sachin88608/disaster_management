@@ -1,0 +1,2 @@
+Requirement already satisfied: pydantic in c:\users\gupta.sachin\onedrive - hippostores technology private limited\documents\disaster_rag_chatbot_final\venv\lib\site-packages (1.10.22)
+Requirement already satisfied: typing-extensions>=4.2.0 in c:\users\gupta.sachin\onedrive - hippostores technology private limited\documents\disaster_rag_chatbot_final\venv\lib\site-packages (from pydantic) (4.14.0)
