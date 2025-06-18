@@ -1,0 +1,174 @@
+{
+  "metrics": {
+    "faithfulness": 0.38461538461538464,
+    "answer_relevancy": 0.6923076923076923,
+    "context_relevancy": 0.9230769230769231,
+    "context_recall": 1.0,
+    "context_precision": 0.6153846153846154,
+    "average_score": 0.7230769230769231
+  },
+  "evaluation_data": [
+    {
+      "question": "What caused the tsunami event near E. Sporades Islands recorded in 330 B.C.?",
+      "answer": "Based on the provided context, there is no information about a tsunami event near E. Sporades Islands recorded in 330 B.C. The context documents only provide information about tsunami events in various locations around the world, but none of them mention E. Sporades Islands or a tsunami event in 330 B.C.\n\nTherefore, I must rely on my general knowledge to provide an answer. Unfortunately, I couldn't find any specific information about a tsunami event near E. Sporades Islands in 330 B.C. It's possible that such an event may have occurred, but without further information or records, it's difficult to determine the cause of such an event.\n\nIn general, tsunamis can be caused by a variety of factors, including earthquakes, landslides, volcanic eruptions, and meteorite impacts. If more information about the specific event in question were available, it might be possible to determine the likely cause of the tsunami. However, without further information, it's not possible to determine the cause of a hypothetical tsunami event near E. Sporades Islands in 330 B.C.",
+      "contexts": [
+        "ID: 1155 | YEAR: 1885 | MONTH: 8.0 | DAY: 3.0 | LATITUDE: 1.1 | LONGITUDE: 124.3 | LOCATION_NAME: SULAWESI ISLAND | COUNTRY: INDONESIA | REGION: Indonesia (Pacific Ocean) and Malaysia | CAUSE: Unknown...",
+        "the destruction was on a smaller scale. Here the wave extended not more than 4.5 km from the mouth. To the northeast of First Creek, inthe area of the Tsutsumi cannery, the wave passed to the north ov...",
+        "ID: 1664 | YEAR: 1933 | MONTH: 6.0 | DAY: 18.0 | HOUR: 21.0 | MINUTE: 37.0 | LATITUDE: 38.1 | LONGITUDE: 142.4 | LOCATION_NAME: SANRIKU | COUNTRY: JAPAN | REGION: Japan | CAUSE: Earthquake | EVENT_VAL...",
+        "ID: 810 | YEAR: 1853 | MONTH: 11.0 | LATITUDE: 47.0 | LONGITUDE: 152.0 | LOCATION_NAME: S. KURIL ISLANDS | COUNTRY: RUSSIA | REGION: Kamchatka and Kuril Islands | CAUSE: Earthquake | EVENT_VALIDITY: V...",
+        "ID: 1459 | YEAR: 1918 | MONTH: 10.0 | DAY: 25.0 | HOUR: 3.0 | MINUTE: 43.0 | LATITUDE: 18.5 | LONGITUDE: -67.5 | LOCATION_NAME: PUERTO RICO | COUNTRY: USA TERRITORY | REGION: Caribbean Sea | CAUSE: Ea..."
+      ],
+      "ground_truth": "Earthquake",
+      "source": "tsunami_dataset.csv"
+    },
+    {
+      "question": "What proxies were used in the 2011 study by Ram\u00edrez-Herrera in Mexico?",
+      "answer": "According to the 2011 study by Ram\u00edrez-Herrera in Mexico, the proxies used to assess tsunami vulnerability and risk were:\n\n1. Distance to the coastline: This proxy measured the distance from the coastline to assess the exposure of coastal communities to tsunami waves.\n2. Elevation: The study used elevation as a proxy to evaluate the potential inundation area and the severity of tsunami impacts.\n3. Population density: This proxy was used to assess the number of people potentially affected by a tsunami event.\n4. Infrastructure and building type: The type and quality of buildings, such as reinforced concrete or wooden houses, were considered as a proxy to assess the potential damage and casualties.\n5. Land use and land cover: The study used land use and land cover data to identify areas with high environmental values, such as mangroves or coral reefs, that could be affected by tsunami waves.\n\nBy using these proxies, the study aimed to identify areas of high tsunami risk and vulnerability in Mexico, providing valuable insights for disaster risk reduction and management efforts.\n\nPlease let me know if you have any further questions or if there's anything else I can help you with!",
+      "contexts": [],
+      "ground_truth": "Geochemical, foraminifera, ostracods, diatoms, etc.",
+      "source": "GLOBAL_SITES_TD.csv"
+    },
+    {
+      "question": "What is the primary goal of NASA's tsunami disaster response program?",
+      "answer": "Based on the provided context, there is no mention of NASA's disaster response program or its primary goal. The context primarily focuses on tsunami science, tsunami warning systems, and tsunami hazard maps.\n\nHowever, based on general knowledge, NASA does have a role in disaster response, including tsunami disasters. NASA's Earth Science Division plays a critical role in disaster response by providing critical data and information to emergency responders, decision-makers, and affected communities.\n\nThe primary goal of NASA's tsunami disaster response program is to provide critical data and information to support disaster response and recovery efforts. This may include:\n\n1. Providing satellite imagery and data to assess damage and identify areas of need.\n2. Supporting tsunami modeling and simulation to predict the impact of tsunami waves.\n3. Providing critical information to emergency responders, decision-makers, and affected communities to support evacuation, rescue, and relief efforts.\n\nActionable advice: If you are in a tsunami-prone area, it is essential to stay informed about tsunami warnings and evacuation routes. Familiarize yourself with tsunami hazard maps and evacuation routes in your area. Stay tuned to local news and emergency alerts for updates on tsunami warnings and evacuation orders.\n\nNote: The information provided about NASA's tsunami disaster response program is based on general knowledge and not specifically mentioned in the provided context.",
+      "contexts": [
+        "Tsunami Images 1975 Tsunami Images 2010 Tsunami Images 2011 Tsunami Images Interactive Hilo Bay Map Article \u201cTsunami and Science\u201d Home / Article \u201cTsunami and Science\u201d How the application of science sa...",
+        "decision-making. Use the links below to view or download the videos for your area of interest. The videos are available on YouTube, or as downloadable zipped MP4 files. Modeling for a Seattle Fault ea...",
+        "for a Cascadia magnitude 9 earthquake scenario Washington Coast Tsunami Wave Amplitude View video on YouTube Download video in MP4 format Grays Harbor Tsunami Wave Amplitude View video on YouTube Down...",
+        "This is the largest tsunami in history. Aleutian Islands Tsunami Apr. 1, 1946 Alaska 130 feet Subduction zone earthquake M8.1 Notes: The tsunami from this earthquake caused 165 deaths and significant ...",
+        "colors on the map show readers how long it takes to walk to high ground. The Washington Geological Survey works closely with each community\u2019s emergency management and government representatives to det..."
+      ],
+      "ground_truth": "To support disaster management efforts using Earth observation data.",
+      "source": "https://appliedsciences.nasa.gov/what-we-do/disasters/tsunamis"
+    },
+    {
+      "question": "What was the cause of the flood in Mozambique on 2008-12-28?",
+      "answer": "I'm happy to help! However, I must point out that there is no mention of Mozambique or the date 2008-12-28 in the context documents provided. The context documents only mention floods in India, specifically in the states of Assam and Uttarakhand.\n\nTherefore, I cannot answer the question about the cause of the flood in Mozambique on 2008-12-28 based on the provided context. If you have any further questions or would like to ask about the floods mentioned in the context documents, I'd be happy to help!",
+      "contexts": [
+        "Unnamed: 0: 3954 | UEI: UEI-IMD-FL-2010-0017 | Start Date: 10-07-2010 00:00 | End Date: 10-07-2010 00:00 | Duration(Days): 1.0 | Main Cause: flood (brahmaputra,its tributaries) | Districts: Barpeta, D...",
+        "Unnamed: 0: 2935 | UEI: UEI-IMD-FL-2001-0006 | Start Date: 15-07-2001 00:00 | End Date: 07-08-2001 00:00 | Duration(Days): 24.0 | Main Cause: severe flood | Districts: Barpeta, Bongaigaon, Darrang, Dh...",
+        "Unnamed: 0: 3439 | UEI: UEI-IMD-FL-2005-0146 | Start Date: 30-06-2005 00:00 | End Date: 30-06-2005 00:00 | Duration(Days): 1.0 | Main Cause: heavy rains | Districts: Chamoli | State: Uttarakhand | Hum...",
+        "Unnamed: 0: 3944 | UEI: UEI-IMD-FL-2010-0007 | Start Date: 10-05-2010 00:00 | End Date: 16-05-2010 00:00 | Duration(Days): 7.0 | Main Cause: flood (bramhaputra,its tributaries, tiyak,kakajan) | Distri...",
+        "Unnamed: 0: 3962 | UEI: UEI-IMD-FL-2010-0025 | Start Date: 14-09-2010 00:00 | End Date: 14-09-2010 00:00 | Duration(Days): 1.0 | Main Cause: flood (brahmaputra,its tributaries)  | Districts: Barpeta, ..."
+      ],
+      "ground_truth": "2, 1",
+      "source": "cyberFlood_1104.csv"
+    },
+    {
+      "question": "What is the severity of the flood event in the United States on 2008-12-29?",
+      "answer": "Based on the provided context, I must clarify that the context does not provide specific details about a flood event on 2008-29 in the United States. The context appears to be a dataset of various factors contributing to flood probability, but it does not provide information about a specific flood event.\n\nHowever, I can provide some insights based on the dataset. The dataset contains five documents, each with various factors contributing to flood probability. The factors include monsoon intensity, topography drainage, river management, deforestation, urbanization, climate change, dams quality, siltation, agricultural practices, encroachments, ineffective disaster preparedness, drainage systems, coastal vulnerability, landslides, watersheds, deteriorating infrastructure, population score, wetland loss, inadequate planning, and political factors.\n\nEach document has a flood probability score, ranging from 0.525 to 0.67. These scores suggest that the areas or regions represented by these documents are at risk of flooding. However, without more specific information, it is difficult to determine the severity of a flood event on a specific date and location.\n\nTo provide actionable advice, I would recommend that disaster management authorities and stakeholders in flood-prone areas should consider these factors when developing flood mitigation and preparedness strategies. They should prioritize areas with higher flood probability scores and focus on improving factors such as drainage infrastructure, river management, and effective disaster preparedness.\n\nIn general, it is essential to have a comprehensive flood risk management plan in place, including early warning systems, evacuation plans, and emergency response strategies. This plan should be regularly updated and practiced to minimize the impact of flood events.\n\nIn conclusion, while the context does not provide specific information about a flood event on 2008-12-29 in the United States, it highlights the importance of considering various factors contributing to flood probability and developing effective flood risk management strategies.",
+      "contexts": [
+        "MonsoonIntensity: 6.0 | TopographyDrainage: 8.0 | RiverManagement: 2.0 | Deforestation: 2.0 | Urbanization: 11.0 | ClimateChange: 8.0 | DamsQuality: 4.0 | Siltation: 4.0 | AgriculturalPractices: 5.0 |...",
+        "MonsoonIntensity: 4.0 | TopographyDrainage: 3.0 | RiverManagement: 8.0 | Deforestation: 4.0 | Urbanization: 9.0 | ClimateChange: 6.0 | DamsQuality: 1.0 | Siltation: 8.0 | AgriculturalPractices: 7.0 | ...",
+        "MonsoonIntensity: 2.0 | TopographyDrainage: 2.0 | RiverManagement: 9.0 | Deforestation: 7.0 | Urbanization: 4.0 | ClimateChange: 9.0 | DamsQuality: 6.0 | Siltation: 8.0 | AgriculturalPractices: 7.0 | ...",
+        "MonsoonIntensity: 7.0 | TopographyDrainage: 8.0 | RiverManagement: 4.0 | Deforestation: 2.0 | Urbanization: 4.0 | ClimateChange: 8.0 | DamsQuality: 5.0 | Siltation: 9.0 | AgriculturalPractices: 8.0 | ...",
+        "MonsoonIntensity: 6.0 | TopographyDrainage: 7.0 | RiverManagement: 3.0 | Deforestation: 9.0 | Urbanization: 3.0 | ClimateChange: 2.0 | DamsQuality: 6.0 | Siltation: 7.0 | AgriculturalPractices: 8.0 | ..."
+      ],
+      "ground_truth": "1.5",
+      "source": "cyberFlood_1104.csv"
+    },
+    {
+      "question": "Which organization is responsible for managing cyclonic hazards in India?",
+      "answer": "Based on the provided context, the organization responsible for managing cyclonic hazards in India is the India Meteorological Department (IMD). This is evident from Document 2, which mentions that the forecast and warning operations and decision-making process are made by blending conceptual models, meteorological datasets, technology, and expertise. It also lists various bulletins issued by IMD, including those related to cyclone warnings.\n\nSpecifically, Document 2 mentions that the Cyclone Warning Division issues bulletins for India coasts, and ACWCs/CWCs issue Four Stage Warning Bulletins, Sea Area Bulletins, Coastal Weather Bulletins, Warnings to Ports, and Warnings for Fisheries, among others.\n\nWhile the context does not explicitly state that IMD is responsible for managing cyclonic hazards, it is implied through the role of IMD in issuing warnings and forecasts. This is further supported by general knowledge, as IMD is a well-established national meteorological agency responsible for weather forecasting, warnings, and research in India.\n\nActionable advice: In the event of a cyclonic hazard, it is essential to stay informed through official channels, such as IMD, and follow the instructions provided by local authorities.",
+      "contexts": [
+        "96 \n \n \n    \n \nAPPENDIX \u2013 II (Updated on 22nd April 2025)  \nLIST OF PORTS UNDER THE DIFFERENT SYSTEMS AND ACWCs/ CWCs \nFROM WHICH THEY RECEIVE PORT WARNINGS  \n   (Vide Para 6.3)  \n \nACWC/CWC  \n Extend...",
+        "forecasting are translated to improve  effectiveness o f TC warning s. The forecast and \nwarning operations and decision -making process is made by blending scientifically based \nconceptual models, me...",
+        "Visakhapatnam districts.  \n \n9.2.4 Frequency Of Broadcast  \nAs mentioned in para 8.4 under Fourstage warnings, the AIR station should be \nrequested to broadcast the warning at repeated hourly or half ...",
+        "Latitude: 13.762754764491 | Longitude: 91.4137572539822 | Rainfall (mm): 45.89873600345234 | Temperature (\u00b0C): 19.28123007641755 | Humidity (%): 57.08207272795536 | River Discharge (m\u00b3/s): 412.1513847...",
+        "tsunami alert information for your area. Although substantial loss of life can occur with any major tsunami, people who are warned ahead of time are better prepared to survive. Different types of aler..."
+      ],
+      "ground_truth": "National Disaster Management Authority (NDMA)",
+      "source": "https://www.ndma.gov.in/Natural-Hazards/Cyclone"
+    },
+    {
+      "question": "According to the SOP 2024, what is the first step in flood response?",
+      "answer": "I apologize, but the provided context documents do not mention the Standard Operating Procedure (SOP) for flood response or the first step in flood response. The context documents primarily focus on internal displacement, conflict, violence, and disasters, but do not provide information on flood response or SOPs.\n\nTo provide a helpful response, I must rely on my general knowledge. In the absence of specific SOPs or guidelines, a general first step in flood response would be to ensure the safety of people in the affected area. This may involve evacuation, provision of emergency shelter, food, water, and medical assistance, as well as search and rescue operations. It is essential to prioritize the safety of responders and the affected population during the response efforts.\n\nPlease note that this response is based on general knowledge and not on the specific context documents provided.",
+      "contexts": [
+        "ISO3: CAN | Country: Canada | Year: 2019 | Sex: Female | Cause: Disaster | 0-4: 170 | 5-11: 255 | 12-17: 215 | 18-59: 1913 | 60+: 889",
+        "ISO3: AFG | Country: Afghanistan | Year: 2013 | Sex: Female | Cause: Conflict | 0-4: 54317 | 5-11: 65080 | 12-17: 47476 | 18-59: 132313 | 60+: 12999",
+        "ISO3: SLV | Year: 2024 | Figure cause: Disaster | Figure category: IDPs | Description: **Methodology and Sources**\nThe total number of IDPs living in displacement as a result of disasters by the end o...",
+        "**Caveats and Challenges**\nThe figure is an underestimate due to access or security constraints which limit the ability to conduct assessments or verify data on short-term movements. Only sites with m...",
+        "ISO3: AGO | Country: Angola | Year: 2020 | Sex: Male | Cause: Disaster | 0-4: 68 | 5-11: 81 | 12-17: 54 | 18-59: 171 | 60+: 16"
+      ],
+      "ground_truth": "Activate the emergency response team.",
+      "source": "61_d385f4_FINAL SOP 2024_December.pdf"
+    },
+    {
+      "question": "What are the four stages in the life cycle of a tropical cyclone?",
+      "answer": "Based on the provided context, I couldn't find any information about the four stages in the life cycle of a tropical cyclone. The context documents provide information about flood events, including the cause of the flood, which in some cases is a tropical cyclone. However, they do not provide information about the life cycle of a tropical cyclone.\n\nUsing my general knowledge, I can provide the following information:\n\nThe four stages in the life cycle of a tropical cyclone are:\n\n1. **Tropical Disturbance**: This is the initial stage where a low-pressure system forms over warm tropical waters. The system is characterized by thunderstorms and strong winds.\n\n2. **Tropical Depression**: In this stage, the system strengthens, and the winds reach a speed of 38 mph (61 km/h). The system starts to rotate, and the thunderstorms become more organized.\n\n3. **Tropical Storm**: At this stage, the winds reach a speed of 74 mph (119 km/h), and the system becomes more organized. The storm starts to take a circular shape, and the winds become stronger.\n\n4. **Hurricane/Typhoon**: This is the most intense stage of a tropical cyclone. The winds reach a speed of 119 mph (192 km/h) or more, and the storm becomes extremely destructive.\n\nActionable advice: It's essential to monitor weather forecasts and warnings from authorities during the formation of a tropical cyclone. Residents in the affected areas should prepare for the storm by stocking up on emergency supplies, securing outdoor items, and having a evacuation plan in place.\n\nPlease note that the information about the life cycle of a tropical cyclone comes from my general knowledge and not from the provided context.",
+      "contexts": [
+        "Unnamed: 0: 3573 | ID: 1374.0 | Year: 2003.0 | Month: 9.0 | Day: 18.0 | Duration (days): 7.0 | fatality: 7 | Severity: 1.0 | Cause: 2 | Lat : 38.2005 | Long: -79.2451 | Country code: 213 | Continent C...",
+        "Unnamed: 0: 7257 | ID: 542.0 | Year: 2000.0 | Month: 11.0 | Day: 30.0 | Duration (days): 4.0 | fatality: 12 | Severity: 1.0 | Cause: 2 | Lat : 10.978338 | Long: 123.518467 | Country code: 159 | Contin...",
+        "Unnamed: 0: 2685 | ID: 1552.0 | Year: 2004.0 | Month: 6.0 | Day: 24.0 | Duration (days): 27.0 | fatality: 25 | Severity: 1.0 | Cause: 1 | Lat : 14.0331 | Long: -83.3822 | Country code: 148 | Continent...",
+        "Unnamed: 0: 4841 | ID: 1106.0 | Year: 2002.0 | Month: 12.0 | Day: 26.0 | Duration (days): 1.0 | fatality: 1 | Country code: 161 | Continent Code: 5 | datetime: 20021226.0 | Country: Portugal",
+        "Unnamed: 0: 6789 | ID: 653.0 | Year: 2001.0 | Month: 7.0 | Day: 1.0 | Duration (days): 19.0 | fatality: 178 | Severity: 2.0 | Cause: 2 | Lat : 16.198223 | Long: 119.88152 | Country code: 159 | Contine..."
+      ],
+      "ground_truth": "Formative, Immature, Mature, and Decaying stages.",
+      "source": "61_d385f4_FINAL SOP 2024_December.pdf"
+    },
+    {
+      "question": "What are the disaster types included in the 2020 Afghanistan dataset?",
+      "answer": "Based on the provided context, specifically Documents 2-5, the disaster types included in the 2021 Afghanistan dataset (not 2020) are:\n\n* Flood / flash flood (mentioned in all four documents: Document 2, Document 3, Document 4, and Document 5)\n\nThere is no information about other disaster types, such as earthquakes, landslides, or wildfires, in the provided context. However, based on general knowledge, it is likely that Afghanistan is prone to other natural disasters as well.\n\nActionable advice: When analyzing disaster datasets, it's essential to carefully review the provided information and consider the scope of the data. In this case, the dataset appears to be limited to flood/flash flood incidents in Afghanistan from January to July 2021. To get a more comprehensive understanding of disaster risks in Afghanistan, it's necessary to consult additional datasets or sources.",
+      "contexts": [
+        "ISO3: TJK | Name: Tajikistan | Year: 2010 | Disaster Internal Displacements: 2000.0 | Disaster Internal Displacements (Raw): 2009.0",
+        "REGION: North Eastern | PROV_CODE: 15 | PROV_NAME: Badakhshan | DIST_CODE: 1509 | DIST_NAME: Teshkan | INC_DATE: 2021-05-14 00:00:00 | INC_TYPE: Flood / flash flood | Persons_killed: 0 | Persons_injur...",
+        "REGION: North Eastern | PROV_CODE: 15 | PROV_NAME: Badakhshan | DIST_CODE: 1522 | DIST_NAME: Warduj | INC_DATE: 2021-05-10 00:00:00 | INC_TYPE: Flood / flash flood | Persons_killed: 0 | Persons_injure...",
+        "REGION: Eastern | PROV_CODE: 13 | PROV_NAME: Kunar | DIST_CODE: 1308 | DIST_NAME: Chawkay | INC_DATE: 2021-06-27 00:00:00 | INC_TYPE: Flood / flash flood | Persons_killed: 0 | Persons_injured: 0 | Fam...",
+        "REGION: Eastern | PROV_CODE: 13 | PROV_NAME: Kunar | DIST_CODE: 1305 | DIST_NAME: Marawara | INC_DATE: 2021-07-13 00:00:00 | INC_TYPE: Flood / flash flood | Persons_killed: 0 | Persons_injured: 0 | Fa..."
+      ],
+      "ground_truth": "Avalanche, Earthquake, Epidemic, Flood / Flash Flood, Landslide, Snowfall",
+      "source": "afghanistan-natural-disaster-incidents-from-january-to-december-2020.xlsx"
+    },
+    {
+      "question": "What is the main reference used for disaster incident data in Afghanistan 2020?",
+      "answer": "Based on the provided context, I must clarify that the question asks about the main reference used for disaster incident data in Afghanistan 2020, whereas the provided context documents are from 2021. Therefore, I cannot provide a direct answer from the context documents.\n\nHowever, based on my general knowledge, it is common for disaster management organizations and governments to rely on standardized datasets and reporting mechanisms for disaster incident data. In the case of Afghanistan, the Office for the Coordination of Humanitarian Affairs (OCHA) and the Afghanistan National Disaster Management Authority (ANDMA) are key stakeholders in disaster management and response. They may have used datasets and references similar to the ones provided in the context documents, but specific to 2020.\n\nIf I were to provide actionable advice, I would recommend exploring the following sources for disaster incident data in Afghanistan for 2020:\n\n1. OCHA's Afghanistan Humanitarian Response Plan 2020\n2. ANDMA's annual reports or situation reports from 2020\n3. International organizations such as the International Federation of Red Cross and Red Crescent Societies (IFRC) or the United Nations Office for Disaster Risk Reduction (UNDRR) may also have reports or datasets on disaster incidents in Afghanistan for 2020.\n\nPlease note that these suggestions are based on my general knowledge and may require further research to find the exact main reference for disaster incident data in Afghanistan 2020.",
+      "contexts": [
+        "REGION: North Eastern | PROV_CODE: 15 | PROV_NAME: Badakhshan | DIST_CODE: 1509 | DIST_NAME: Teshkan | INC_DATE: 2021-05-14 00:00:00 | INC_TYPE: Flood / flash flood | Persons_killed: 0 | Persons_injur...",
+        "REGION: Eastern | PROV_CODE: 13 | PROV_NAME: Kunar | DIST_CODE: 1308 | DIST_NAME: Chawkay | INC_DATE: 2021-06-27 00:00:00 | INC_TYPE: Flood / flash flood | Persons_killed: 0 | Persons_injured: 0 | Fam...",
+        "ISO3: TJK | Name: Tajikistan | Year: 2010 | Disaster Internal Displacements: 2000.0 | Disaster Internal Displacements (Raw): 2009.0",
+        "REGION: North Eastern | PROV_CODE: 15 | PROV_NAME: Badakhshan | DIST_CODE: 1522 | DIST_NAME: Warduj | INC_DATE: 2021-05-10 00:00:00 | INC_TYPE: Flood / flash flood | Persons_killed: 0 | Persons_injure...",
+        "REGION: Eastern | PROV_CODE: 13 | PROV_NAME: Kunar | DIST_CODE: 1305 | DIST_NAME: Marawara | INC_DATE: 2021-07-13 00:00:00 | INC_TYPE: Flood / flash flood | Persons_killed: 0 | Persons_injured: 0 | Fa..."
+      ],
+      "ground_truth": "HADB (Humanitarian Assistance Database)",
+      "source": "afghanistan-natural-disaster-incidents-from-january-to-december-2020.xlsx"
+    },
+    {
+      "question": "What is defined as a natural disaster incident in the 2022 Afghanistan dataset?",
+      "answer": "Based on the provided context, there is no information about the 2022 Afghanistan dataset. The context documents are related to flood incidents in India, and they do not provide a definition of a natural disaster incident.\n\nFrom my general knowledge, a natural disaster incident can be defined as a sudden, unexpected, and uncontrollable event caused by natural forces, such as earthquakes, hurricanes, floods, landslides, volcanic eruptions, etc., that results in loss of life, injury, or other health impacts, as well as damage to property, infrastructure, and the environment.\n\nIn the context of disaster management, it is essential to have a clear definition of what constitutes a natural disaster incident to ensure effective response, mitigation, and preparedness measures. This definition can vary depending on the specific hazards and risks faced by a particular region or country.\n\nActionable advice: It is crucial to develop a comprehensive disaster management plan that includes a clear definition of a natural disaster incident, risk assessment, early warning systems, emergency response protocols, and post-disaster recovery and reconstruction strategies. This plan should be regularly reviewed and updated to ensure its effectiveness in reducing the impact of natural disasters.",
+      "contexts": [
+        "Unnamed: 0: 1578 | UEI: UEI-IMD-FL-1989-0020 | Start Date: 12-07-1989 00:00 | End Date: 12-07-1989 00:00 | Duration(Days): 1.0 | Main Cause: heavy rains | Districts: Dharwad | State: Karnataka | Human...",
+        "Unnamed: 0: 1216 | UEI: UEI-IMD-FL-1984-0073 | Start Date: 12-06-1984 00:00 | End Date: 13-06-1984 00:00 | Duration(Days): 2.0 | Main Cause: heavy rains | Districts: Koraput | State: Odisha | Extent o...",
+        "Unnamed: 0: 2223 | UEI: UEI-IMD-FL-1995-0066 | Start Date: 19-07-1995 00:00 | End Date: 19-07-1995 00:00 | Duration(Days): 1.0 | Main Cause: heavy rains | Districts: Pune | State: Maharashtra | Extent...",
+        "Unnamed: 0: 2150 | UEI: UEI-IMD-FL-1994-0117 | Start Date: 03-08-1994 00:00 | End Date: 03-08-1994 00:00 | Duration(Days): 1.0 | Main Cause: heavy rains | Districts: Purba Medinipur | State: West Beng...",
+        "Unnamed: 0: 2056 | UEI: UEI-IMD-FL-1994-0023 | Start Date: 16-07-1994 00:00 | End Date: 17-07-1994 00:00 | Duration(Days): 2.0 | Main Cause: heavy rains | Districts: Kinnaur, Lahul And Spiti,Shimla | ..."
+      ],
+      "ground_truth": "An event where people were affected or required humanitarian assistance",
+      "source": "afghanistan-natural-disaster-incidents-from-january-to-september-2022.xlsx"
+    },
+    {
+      "question": "How many totally damaged houses were reported in Agusan del Norte in 2019?",
+      "answer": "Based on the provided context, there is no mention of Agusan del Norte in the documents. The regions mentioned are Region X (Northern Mindanao), Region I (Ilocos Region), and Region XI (Davao Region), but Agusan del Norte is not mentioned.\n\nTherefore, I cannot provide an answer based on the provided context. If I were to use general knowledge, I would suggest checking other sources of data or reports related to disaster management and emergency response in Agusan del Norte in 2019.\n\nActionable advice: If you need to find data on Agusan del Norte, I recommend searching for reports or datasets related to disaster management and emergency response in the Philippines, specifically for Agusan del Norte in 2019. You can also try contacting local government units or disaster management offices in Agusan del Norte for more information.",
+      "contexts": [
+        "Region: REGION X (NORTHERN MINDANAO) | Region code: PH100000000 | Province: BUKIDNON | Province code: PH101300000 | Municipality: DON CARLOS | Municipal Code: PH101304000 | Year: 2019 | Magnitude: 5.9...",
+        "Region: REGION I (ILOCOS REGION) | Region code: PH010000000 | Province: Ilocos Norte | Province code: PH012800000 | City_Mun: Bangui | City_Mun code: PH012804000 | Year: 2019 | Incident: TS Ineng | Da...",
+        "Region: REGION I (ILOCOS REGION) | Region code: PH010000000 | Province: Ilocos Norte | Province code: PH012800000 | City_Mun: Bacarra | City_Mun code: PH012802000 | Year: 2019 | Incident: TS Ineng | D...",
+        "Region: REGION X (NORTHERN MINDANAO) | Region code: PH100000000 | Province: BUKIDNON | Province code: PH101300000 | Municipality: MARAMAG | Municipal Code: PH101315000 | Year: 2019 | Magnitude: 5.9 Ma...",
+        "Region: REGION XI (DAVAO REGION) | Region code: PH110000000 | Province: DAVAO OCCIDENTAL | Province code: PH118600000 | Municipality: SANTA MARIA | Municipal Code: PH118604000 | Year: 2019 | Magnitude..."
+      ],
+      "ground_truth": "0",
+      "source": "200204_philippines-2019-events-data.xlsx"
+    },
+    {
+      "question": "What is ShakeMap used for?",
+      "answer": "Based on the provided context, ShakeMap is not explicitly mentioned. Therefore, I must rely on my general knowledge to answer this question.\n\nShakeMap is a product of the United States Geological Survey (USGS) that provides near real-time maps of ground motion and shaking intensity following significant earthquakes. The maps are used to identify areas of highest priority for emergency response, damage assessment, and resource allocation.\n\nWhile the provided context does mention ShakeMap, it does mention earthquakes as one of the disasters and emergencies listed on the Ready.gov website. This information is not directly related to ShakeMap, but it does show that earthquakes are a relevant topic in the context of disaster management and emergency response.\n\nIn terms of actionable advice, emergency responders and disaster management teams can use ShakeMap to quickly assess the impact of an earthquake and prioritize their response efforts. This can help save lives, reduce injuries, and minimize damage to infrastructure and property.",
+      "contexts": [
+        "Power Outages Severe Weather Space Weather Thunderstorms & Lightning Tornadoes Tsunamis Volcanoes Wildfires Winter Weather Recovering from Disaster Make a Plan Plan Ahead Build a Kit Low and No Cost P..."
+      ],
+      "ground_truth": "To provide rapid post-earthquake information including ground shaking maps",
+      "source": "https://earthquake.usgs.gov/data/shakemap/"
+    }
+  ],
+  "timestamp": "2025-06-17T17:30:49.102303",
+  "model_name": "microsoft/phi-2",
+  "dataset_size": 13
+}

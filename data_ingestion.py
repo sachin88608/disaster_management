@@ -117,14 +117,21 @@ class DataIngestion:
             response = requests.get(url, headers=headers, timeout=10)
             response.raise_for_status()
             
-            soup = BeautifulSoup(response.content, 'html.parser')
+            # Try to detect the encoding
+            if response.encoding == 'ISO-8859-1':
+                response.encoding = response.apparent_encoding
+            
+            # Parse with explicit encoding
+            soup = BeautifulSoup(response.content, 'html.parser', from_encoding=response.encoding)
             
             # Remove script and style elements
             for script in soup(["script", "style"]):
                 script.decompose()
             
-            # Extract text
-            text = soup.get_text()
+            # Extract text with better encoding handling
+            text = soup.get_text(separator=' ', strip=True)
+            
+            # Clean up the text
             lines = (line.strip() for line in text.splitlines())
             chunks = (phrase.strip() for line in lines for phrase in line.split("  "))
             text = ' '.join(chunk for chunk in chunks if chunk)

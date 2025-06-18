@@ -4,6 +4,7 @@ from data_ingestion import DataIngestion
 from vector_store import VectorStore
 from llm_interface import LLMInterface
 from config import Config
+import os
 
 logger = logging.getLogger(__name__)
 
@@ -36,14 +37,23 @@ class RAGSystem:
             if 'files' in sources:
                 for file_path in sources['files']:
                     try:
+                        if not os.path.exists(file_path):
+                            logger.warning(f"File not found: {file_path}")
+                            continue
+                            
                         documents = self.data_ingestion.process_file(file_path)
-                        all_documents.extend(documents)
-                        results['details'].append({
-                            'source': file_path,
-                            'type': 'file',
-                            'status': 'success',
-                            'documents': len(documents)
-                        })
+                        if documents:
+                            all_documents.extend(documents)
+                            results['details'].append({
+                                'source': file_path,
+                                'type': 'file',
+                                'status': 'success',
+                                'documents': len(documents)
+                            })
+                            logger.info(f"Successfully processed {len(documents)} documents from {file_path}")
+                        else:
+                            logger.warning(f"No documents extracted from {file_path}")
+                            
                     except Exception as e:
                         logger.error(f"Failed to process file {file_path}: {str(e)}")
                         results['details'].append({
@@ -60,13 +70,18 @@ class RAGSystem:
                 for url in sources['urls']:
                     try:
                         documents = self.data_ingestion.process_url(url)
-                        all_documents.extend(documents)
-                        results['details'].append({
-                            'source': url,
-                            'type': 'url',
-                            'status': 'success',
-                            'documents': len(documents)
-                        })
+                        if documents:
+                            all_documents.extend(documents)
+                            results['details'].append({
+                                'source': url,
+                                'type': 'url',
+                                'status': 'success',
+                                'documents': len(documents)
+                            })
+                            logger.info(f"Successfully processed {len(documents)} documents from {url}")
+                        else:
+                            logger.warning(f"No documents extracted from {url}")
+                            
                     except Exception as e:
                         logger.error(f"Failed to process URL {url}: {str(e)}")
                         results['details'].append({
@@ -82,16 +97,20 @@ class RAGSystem:
             for doc in all_documents:
                 doc['disaster_type'] = disaster_type
             
-            # Add documents to vector store
+            # Add documents to vector store in batches
             if all_documents:
-                success = self.vector_store.add_documents(all_documents)
-                if success:
-                    results['total_documents'] += len(all_documents)
-                    results['successful_sources'] += 1
-                    logger.info(f"Successfully ingested {len(all_documents)} documents for {disaster_type}")
-                else:
+                try:
+                    success = self.vector_store.add_documents(all_documents)
+                    if success:
+                        results['total_documents'] += len(all_documents)
+                        results['successful_sources'] += 1
+                        logger.info(f"Successfully ingested {len(all_documents)} documents for {disaster_type}")
+                    else:
+                        results['failed_sources'] += 1
+                        logger.error(f"Failed to add documents to vector store for {disaster_type}")
+                except Exception as e:
+                    logger.error(f"Error adding documents to vector store for {disaster_type}: {str(e)}")
                     results['failed_sources'] += 1
-                    logger.error(f"Failed to add documents to vector store for {disaster_type}")
         
         return results
     

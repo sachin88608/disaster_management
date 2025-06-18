@@ -29,8 +29,6 @@ class Config:
     DATA_SOURCES = {
         'earthquake': {
             'urls': ['https://www.emdat.be',
-                    'https://www.researchgate.net/publication/387765577_TE23D_A_Dataset_for_Earthquake_Damage_Assessment_and_Evaluation',
-                    'https://earthquake.usgs.gov',
                     'https://www.who.int/emergencies/diseases/novel-coronavirus-2019/situation-reports',
                     'https://datascience.codata.org/articles/10.5334/dsj-2025-008',
                     'https://www.iitk.ac.in/nicee/wcee/article/14_01-1022.pdf',
@@ -92,12 +90,86 @@ class Config:
                     'data/earthquake/afghanistan-natural-disaster-incidents-from-january-to-july-2021.xlsx']
         },
         'flood': {
-            'urls': [],
+            'urls': ['https://ndem.nrsc.gov.in/documents/downloads/Flood%20Affected%20Area%20%20Atlas%20of%20India%20-Satellite%20based%20study.pdf',
+                     'https://data.jrc.ec.europa.eu/dataset/1d128b6c-a4ee-4858-9e34-6210707f3c81',
+                     'https://saarc-sdmc.org/sites/default/files/programmes_doc_upload/SDMC_Day2_Lect2_Hands_on_OpenDataPortals.pdf',
+                     'https://environment.data.gov.uk/flood-planning/download/cycle-2/',
+                     'https://public.emdat.be/',
+                    'https://ndmindia.mha.gov.in/ndmi/whatNewSituation',
+                    'https://ndmindia.mha.gov.in/ndmi/viewUploadedDocument?uid=NEW2568',
+                    'https://ndmindia.mha.gov.in/ndmi/viewUploadedDocument?uid=NEW2567',
+                    'https://internal.imd.gov.in/pages/press_release_mausam.php',
+                    'https://internal.imd.gov.in/press_release/20250608_pr_4040.pdf',
+                    'https://indiawris.gov.in/wiki/doku.php?id=cwc_national_flood_forecasting_network#:~:text=Central%20Water%20Commission%20through%20its,Barrage%20Authorities%2F%20District%20Magistrates%2F%20Sub',
+                    'https://rsmcnewdelhi.imd.gov.in/report.php?internal_menu=NjE=',
+                    'https://rsmcnewdelhi.imd.gov.in/report.php?internal_menu=NzE=',
+                    'https://rsmcnewdelhi.imd.gov.in/report.php?internal_menu=NzI=',
+                    'https://www.ndma.gov.in/Natural-Hazards/Floods',
+                    'https://www.ndma.gov.in/Natural-Hazards/Cyclone',
+                    'https://www.ndma.gov.in/Natural-Hazards/Tsunami',
+                    'https://www.ndma.gov.in/Natural-Hazards/Urban-Floods',
+                    'https://tsunami.incois.gov.in/TEWS/National.jsp',
+                    'https://waterwatch.usgs.gov/index.php?id=ww_flood',
+                    'https://waterwatch.usgs.gov/index.php?id=ww_drought',
+                    'https://zenodo.org/records/7545697',
+                    'https://urs.earthdata.nasa.gov/profile',
+                    'https://ndma.gov.in/Natural-Hazards/Urban-Floods',
+                    'https://ndma.gov.in/Natural-Hazards/Floods'
+                    ],
             'files': ['data/RS_Session_255_AU_887.1.csv',
                       'data/flood/public_emdat_data.xlsx',
-                      'data/flood/WHO-COVID-19-global-daily-data.csv']
+                      'data/flood/WHO-COVID-19-global-daily-data.csv',
+                      'data/flood/28_e80340_TCP21(2024 edition).pdf'
+                      'data/flood/61_245057_Cyclone Warning SOP Booklet final.pdf',
+                      'data/flood/61_d385f4_FINAL SOP 2024_December.pdf',
+                      'data/flood/71_7d2c29_MARINE SOP.pdf',
+                      'data/flood/72_211daa_bulletin_sop.pdf',
+                      'data/flood/flood_risk_dataset_india.csv',
+                      'data/flood/s_fld_haz_ar.xls',
+                      'data/flood/District_FloodedArea.csv',
+                      'data/flood/District_FloodImpact.csv',
+                      'data/flood/India_Flood_Inventory_v3.csv',
+                      'data/flood/allocation-partners-un-19july2011.csv',
+                      'data/flood/cyberFlood_1104.csv',
+                      'data/flood/Floodplains_Outline.csv',
+                      'data/flood/flood.csv']
+        },
+        'tsunami': {
+            'urls': ['https://www.ngdc.noaa.gov/hazel/view/hazards/tsunami/event-data?maxYear=2025&minYear=1900',
+                    'https://cbe.miis.edu/cgi/viewcontent.cgi?article=1091&context=booc',
+                    'https://www.weather.gov/itic-car/tsunami_awareness_materials',
+                    'https://tsunami.ioc.unesco.org/en/pacific/itic',
+                    'https://psmsl.org/data/obtaining/',
+                    'https://www.ncei.noaa.gov/products/natural-hazards',
+                    'https://www.tsunami.gov/',
+                    'https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/tsunamis#understanding-tsunamis.1',
+                    'https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/tsunamis#tsunamis-in-washington',
+                    'https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/tsunamis#preparation-and-evacuation.4',
+                    'https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/tsunamis#tsunami-evacuation-maps',
+                    'https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/tsunamis#tsunami-hazard-maps',
+                    'https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/tsunamis#tsunami-simulation-videos',
+                    'https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/tsunamis#tsunami-alerts',
+                    'https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/tsunamis#historical-tsunamis-worldwide',
+                    'https://www.dnr.wa.gov/programs-and-services/geology/geologic-hazards/tsunamis#building-code-design-zone-map',
+                    'https://reliefweb.int/disaster/ts-2004-000147-idn',
+                    'https://catalog.data.gov/dataset/ncei-wds-global-historical-tsunami-database-2100-bc-to-present1#:~:text=The%20Global%20Historical%20Tsunami%20Database,database%20includes%20two%20related%20files.',
+                    'https://appliedsciences.nasa.gov/what-we-do/disasters/tsunamis',
+                    'https://tsunami.org/article-tsunami-and-science/',
+                    'https://www.britannica.com/science/tsunami',
+                    'https://www.bbc.com/news/topics/c70467809wzt',
+                    'https://www.bbc.com/news/articles/c4g3k3pr9e0o',
+                    'https://legacy.itic.ioc-unesco.org/legacy.itic.ioc-unesco.org/index464f.html?option=com_content&view=category&layout=blog&id=2767&Itemid=3406',
+                    'https://www.livescience.com/planet-earth/tsunami/tsunamis-up-to-90-feet-high-smash-into-new-zealand-every-580-years-study-finds',
+                    'https://www.livescience.com/planet-earth/tsunami/1st-mega-tsunami-on-record-since-antiquity-was-triggered-by-tonga-volcanic-eruption',
+                    'https://www.ncei.noaa.gov/products/natural-hazards/tsunamis-earthquakes-volcanoes/tsunamis/global-historical-data',
+                    'https://www.ngdc.noaa.gov/hazel/view/hazards/tsunami/event-data',
+                    'https://rmets.onlinelibrary.wiley.com/doi/10.1002/gdj3.270',
+                    'https://tsunami.incois.gov.in/TEWS/tsunamimodeling.jsp'
+                     ],
+            'files': ['data/tsunami/GLOBAL_SITES_TD.csv',
+                      'data/tsunami/tsunami_dataset.csv']
         }
     }
     
     # Future disaster types (ready for expansion)
-    FUTURE_DISASTERS = ['drought', 'covid', 'wildfire', 'hurricane', 'tsunami']
+    FUTURE_DISASTERS = ['drought', 'covid', 'wildfire', 'hurricane', 'tsunami', 'plane_crash']

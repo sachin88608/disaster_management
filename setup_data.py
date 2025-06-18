@@ -8,6 +8,7 @@ import pandas as pd
 from pathlib import Path
 import logging
 from rag_system import RAGSystem
+import argparse
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -236,51 +237,101 @@ A flood is an overflow of water that submerges land that is usually dry. Floods 
     
     logger.info("Sample flood data created")
 
-def initialize_system():
-    """Initialize the RAG system with sample data"""
+def initialize_system(force_reprocess: bool = False):
+    """Initialize the RAG system with all data sources"""
     try:
         rag_system = RAGSystem()
         
-        # Custom data sources for initialization
-        data_sources = {
-            'earthquake': {
-                'files': ['data/earthquake_data.csv', 'data/earthquake_info.txt']
-            },
-            'flood': {
-                'files': ['data/flood_data.csv', 'data/flood_info.txt']
-            }
-        }
+        # If force reprocess is True, reset the system
+        if force_reprocess:
+            logger.info("Force reprocessing all data...")
+            rag_system.reset_system()
+            existing_sources = []
+        else:
+            # Get existing sources from vector store
+            existing_sources = rag_system.vector_store.get_existing_sources()
+            logger.info(f"Found {len(existing_sources)} existing sources in vector store")
         
-        results = rag_system.ingest_data_sources(data_sources)
+        # Get all data sources from config
+        data_sources = rag_system.config.DATA_SOURCES
         
-        logger.info(f"System initialized successfully!")
-        logger.info(f"Total documents processed: {results['total_documents']}")
+        # Filter out sources that are already processed (unless force_reprocess is True)
+        new_data_sources = {}
+        for disaster_type, sources in data_sources.items():
+            new_sources = {'files': [], 'urls': []}
+            
+            # Check files
+            if 'files' in sources:
+                for file_path in sources['files']:
+                    if force_reprocess or file_path not in existing_sources:
+                        new_sources['files'].append(file_path)
+                    else:
+                        logger.info(f"Skipping existing file: {file_path}")
+            
+            # Check URLs
+            if 'urls' in sources:
+                for url in sources['urls']:
+                    if force_reprocess or url not in existing_sources:
+                        new_sources['urls'].append(url)
+                    else:
+                        logger.info(f"Skipping existing URL: {url}")
+            
+            # Only add disaster type if there are new sources
+            if new_sources['files'] or new_sources['urls']:
+                new_data_sources[disaster_type] = new_sources
+        
+        if not new_data_sources:
+            logger.info("No new data sources to process. All data is up to date!")
+            return True
+        
+        # Initialize with only new data sources
+        results = rag_system.ingest_data_sources(new_data_sources)
+        
+        if results['failed_sources'] > 0:
+            logger.warning(f"Some sources failed to process: {results['failed_sources']}")
+        
+        logger.info("System updated successfully!")
+        logger.info(f"New documents processed: {results['total_documents']}")
         logger.info(f"Successful sources: {results['successful_sources']}")
         logger.info(f"Failed sources: {results['failed_sources']}")
         
-        return True
-        
+        # Verify the system is ready
+        stats = rag_system.get_system_stats()
+        if stats['vector_store'].get('total_documents', 0) > 0:
+            logger.info("Setup completed successfully!")
+            logger.info("You can now run: streamlit run streamlit_app.py")
+            return True
+        else:
+            logger.error("Setup failed: No documents were added to the vector store")
+            return False
+            
     except Exception as e:
-        logger.error(f"Failed to initialize system: {str(e)}")
+        logger.error(f"Error during system initialization: {str(e)}")
         return False
 
 def main():
-    """Main setup function"""
-    logger.info("Starting data setup...")
-    
-    # Create directory structure
-    create_data_directory()
-    
-    # Create sample data
-    create_sample_earthquake_data()
-    create_sample_flood_data()
-    
-    # Initialize system
-    if initialize_system():
-        logger.info("Setup completed successfully!")
-        logger.info("You can now run: streamlit run streamlit_app.py")
-    else:
-        logger.error("Setup failed!")
+    """Main function to set up the system"""
+    try:
+        # Parse command line arguments
+        parser = argparse.ArgumentParser(description='Setup the RAG system with data')
+        parser.add_argument('--force', action='store_true', 
+                          help='Force reprocessing of all data, even if it exists in the vector store')
+        args = parser.parse_args()
+        
+        logger.info("Starting data setup...")
+        
+        # Create data directory structure
+        create_data_directory()
+        
+        # Initialize system with all data sources
+        if initialize_system(force_reprocess=args.force):
+            logger.info("Setup completed successfully!")
+        else:
+            logger.error("Setup failed. Please check the logs for details.")
+            
+    except Exception as e:
+        logger.error(f"Setup failed: {str(e)}")
+        raise
 
 if __name__ == "__main__":
     main()

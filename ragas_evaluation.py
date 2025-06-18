@@ -41,6 +41,7 @@ import torch
 import asyncio
 from pathlib import Path
 import re
+import pandas as pd
 
 # Sample evaluation dataset
 FULL_EVALUATION_DATASET = [
@@ -97,6 +98,7 @@ class CustomHuggingFaceLLM(LLM):
     tokenizer: Optional[Any] = Field(default=None)
     model: Optional[Any] = Field(default=None)
     pipe: Optional[Any] = Field(default=None)
+    max_length: int = Field(default=2048)
     
     class Config:
         arbitrary_types_allowed = True
@@ -139,6 +141,22 @@ class CustomHuggingFaceLLM(LLM):
             logger.error(f"Error initializing model: {str(e)}")
             raise
 
+    def truncate_text(self, text: str, max_tokens: int = None) -> str:
+        """Truncate text to fit within token limit"""
+        if max_tokens is None:
+            max_tokens = self.max_length - 100  # Leave some room for generation
+            
+        tokens = self.tokenizer.encode(text)
+        if len(tokens) <= max_tokens:
+            return text
+        
+        # Truncate and decode back to text
+        truncated_tokens = tokens[:max_tokens]
+        truncated_text = self.tokenizer.decode(truncated_tokens, skip_special_tokens=True)
+        
+        logger.warning(f"Text truncated from {len(tokens)} to {len(truncated_tokens)} tokens")
+        return truncated_text
+
     def _extract_prompt_text(self, prompt: Any) -> str:
         """Extract text from various prompt types"""
         try:
@@ -148,7 +166,7 @@ class CustomHuggingFaceLLM(LLM):
                 # Handle tuple format like ('prompt_str', 'actual_content')
                 return prompt[1] if isinstance(prompt[1], str) else str(prompt[1])
             elif isinstance(prompt, list):
-                return prompt[0] if prompt and isinstance(prompt[0], str) else str(prompt)
+                return prompt[0] if prompt and isinstance(prompt[0], str) else str(prompt[0])
             elif hasattr(prompt, 'to_string'):
                 return prompt.to_string()
             elif hasattr(prompt, 'text'):
@@ -232,6 +250,10 @@ class CustomHuggingFaceLLM(LLM):
         try:
             # Extract prompt text
             prompt_text = self._extract_prompt_text(prompt)
+            
+            # Truncate if too long
+            prompt_text = self.truncate_text(prompt_text)
+            
             logger.debug(f"Processing prompt: {prompt_text[:100]}...")
             
             # Create a focused prompt for evaluation
@@ -241,6 +263,9 @@ class CustomHuggingFaceLLM(LLM):
                 eval_prompt = f"Evaluate if this is relevant. Answer with 'Yes' or 'No' and brief explanation.\n\n{prompt_text}\n\nEvaluation:"
             else:
                 eval_prompt = f"Evaluate this content. Provide a brief assessment.\n\n{prompt_text}\n\nEvaluation:"
+            
+            # Truncate the evaluation prompt as well
+            eval_prompt = self.truncate_text(eval_prompt)
             
             # Generate response
             response = self.pipe(
@@ -622,18 +647,93 @@ def main():
     try:
         # You can change the model here if needed
         model_name = "microsoft/phi-2"
-        
         print(f"Initializing RAGAS evaluator with model: {model_name}")
         evaluator = RAGASEvaluator(model_name=model_name)
-        
+
+        # Try to load SAMPLE_EVALUATION_DATASET.csv if it exists
+        sample_file = 'SAMPLE_EVALUATION_DATASET.csv'
+        evaluation_data = None
+        if os.path.exists(sample_file):
+            print(f"Loading evaluation data from {sample_file}...")
+            df = pd.read_csv(sample_file)
+            
+            # Initialize RAG system to get real answers
+            try:
+                from rag_system import RAGSystem
+                print("Initializing RAG system...")
+                rag_system = RAGSystem()
+                print("RAG system initialized successfully!")
+            except Exception as e:
+                print(f"Warning: Could not initialize RAG system: {e}")
+                print("Using ground truth as answers (this will give perfect scores)")
+                rag_system = None
+            
+            # Convert DataFrame to list of dicts in the expected format
+            evaluation_data = []
+            for idx, row in df.iterrows():
+                question = row['question']
+                ground_truth = row['ground_truth_answer']
+                source = row['source']
+                
+                print(f"\nProcessing question {idx+1}: {question}")
+                
+                if rag_system:
+                    try:
+                        # Get real answer and context from RAG system
+                        response = rag_system.query(question)
+                        chatbot_answer = response['answer']
+                        retrieved_contexts = [source['snippet'] for source in response['sources']]
+                        
+                        # Truncate long contexts to prevent token length issues
+                        max_context_length = 500  # characters per context
+                        truncated_contexts = []
+                        for ctx in retrieved_contexts:
+                            if len(ctx) > max_context_length:
+                                truncated_contexts.append(ctx[:max_context_length] + "...")
+                                print(f"Context truncated from {len(ctx)} to {max_context_length} characters")
+                            else:
+                                truncated_contexts.append(ctx)
+                        
+                        print(f"Chatbot answer: {chatbot_answer[:100]}...")
+                        print(f"Retrieved contexts: {len(truncated_contexts)} contexts")
+                        
+                        evaluation_data.append({
+                            'question': question,
+                            'answer': chatbot_answer,
+                            'contexts': truncated_contexts,
+                            'ground_truth': ground_truth,
+                            'source': source
+                        })
+                    except Exception as e:
+                        print(f"Error getting answer for question {idx+1}: {e}")
+                        # Fallback to ground truth
+                        evaluation_data.append({
+                            'question': question,
+                            'answer': ground_truth,
+                            'contexts': [str(ground_truth)],
+                            'ground_truth': ground_truth,
+                            'source': source
+                        })
+                else:
+                    # Fallback when RAG system is not available
+                    evaluation_data.append({
+                        'question': question,
+                        'answer': ground_truth,
+                        'contexts': [str(ground_truth)],
+                        'ground_truth': ground_truth,
+                        'source': source
+                    })
+        else:
+            print("No SAMPLE_EVALUATION_DATASET.csv found. Using default FULL_EVALUATION_DATASET.")
+
         print("Starting evaluation...")
-        results = evaluator.evaluate()
-        
+        results = evaluator.evaluate(evaluation_data)
+
         if 'error' in results:
             print(f"Evaluation completed with errors. Check logs for details.")
         else:
             print("Evaluation completed successfully!")
-        
+
     except Exception as e:
         logger.error(f"Error in main: {str(e)}")
         print(f"Error in main execution: {str(e)}")

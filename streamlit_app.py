@@ -2,7 +2,7 @@ import streamlit as st
 import plotly.express as px
 import plotly.graph_objects as go
 import pandas as pd
-from typing import Dict, Any
+from typing import Dict, Any, List
 import logging
 import sys
 import os
@@ -60,6 +60,10 @@ st.markdown("""
         padding: 0.7rem;
         margin: 0.5rem 0;
         font-size: 0.98rem;
+        color: #222 !important;
+    }
+    .source-box * {
+        color: #222 !important;
     }
     .metric-box {
         background-color: #ffffff;
@@ -92,26 +96,23 @@ def display_chat_message(message: str, is_user: bool = True):
     </div>
     """, unsafe_allow_html=True)
 
-def display_sources(sources: list):
+def display_sources(sources: List[Dict[str, Any]]):
     """Display source information"""
-    if not sources:
-        return
-    
-    st.markdown("### 📚 Sources Used")
-    
-    for i, source in enumerate(sources, 1):
-        with st.expander(f"Source {i}: {source.get('type', 'Unknown').title()} - Score: {source.get('similarity_score', 0):.3f}"):
-            st.markdown(f"**Source:** {source.get('source', 'Unknown')}")
-            st.markdown(f"**Type:** {source.get('type', 'Unknown')}")
-            st.markdown(f"**Similarity Score:** {source.get('similarity_score', 0):.3f}")
-            
-            if 'page' in source:
-                st.markdown(f"**Page:** {source['page']}")
-            if 'row' in source:
-                st.markdown(f"**Row:** {source['row']}")
-            
-            st.markdown("**Content Preview:**")
-            st.markdown(f"```\n{source.get('snippet', 'No preview available')}\n```")
+    st.markdown("### 📚 Sources")
+    for source in sources:
+        st.markdown(f"""
+        <div class="source-box">
+            <strong>Source:</strong> {source['source']}<br>
+            <strong>Type:</strong> {source['type']}<br>
+            <strong>Relevance:</strong> {source['similarity_score']:.2%}<br>
+            <strong>Content:</strong> {source['snippet']}
+        </div>
+        """, unsafe_allow_html=True)
+
+def process_user_input(user_input: str):
+    """Process user input when Enter key is pressed"""
+    if user_input:
+        st.session_state._input_submitted = True
 
 def main():
     # Header
@@ -125,52 +126,41 @@ def main():
     if 'chat_history' not in st.session_state:
         st.session_state.chat_history = []
     
-    if 'system_initialized' not in st.session_state:
-        st.session_state.system_initialized = False
-    
     # Check if system is initialized
     if st.session_state.rag_system is None:
         st.error("Failed to initialize the RAG system. Please check your configuration.")
+        return
+    
+    # Check if vector store has data
+    stats = st.session_state.rag_system.get_system_stats()
+    if stats['vector_store'].get('total_documents', 0) == 0:
+        st.error("No data found in the vector store. Please run setup_data.py first to initialize the data.")
         return
     
     # Sidebar
     with st.sidebar:
         st.header("🔧 System Controls")
         
-        # System initialization
-        if not st.session_state.system_initialized:
-            if st.button("🚀 Initialize with Sample Data", type="primary"):
-                with st.spinner("Loading sample disaster data..."):
-                    try:
-                        results = st.session_state.rag_system.initialize_with_sample_data()
-                        st.session_state.system_initialized = True
-                        st.success(f"Loaded {results['total_documents']} documents!")
-                        st.rerun()
-                    except Exception as e:
-                        st.error(f"Failed to initialize data: {str(e)}")
-        
         # System stats
-        if st.session_state.system_initialized:
-            st.markdown("### 📊 System Statistics")
-            try:
-                stats = st.session_state.rag_system.get_system_stats()
-                
-                st.metric("Total Documents", stats['vector_store'].get('total_documents', 0))
-                st.metric("LLM Model", stats.get('llm_model', 'Unknown'))
-                st.metric("Embedding Model", stats.get('embedding_model', 'Unknown'))
-                
-                with st.expander("Advanced Settings"):
-                    st.write(f"**Chunk Size:** {stats.get('chunk_size', 'Unknown')}")
-                    st.write(f"**Top K Results:** {stats.get('top_k_results', 'Unknown')}")
-                    st.write(f"**Similarity Threshold:** {stats.get('similarity_threshold', 'Unknown')}")
-                
-            except Exception as e:
-                st.error(f"Error loading stats: {str(e)}")
+        st.markdown("### 📊 System Statistics")
+        try:
+            stats = st.session_state.rag_system.get_system_stats()
+            
+            st.metric("Total Documents", stats['vector_store'].get('total_documents', 0))
+            st.metric("LLM Model", stats.get('llm_model', 'Unknown'))
+            st.metric("Embedding Model", stats.get('embedding_model', 'Unknown'))
+            
+            with st.expander("Advanced Settings"):
+                st.write(f"**Chunk Size:** {stats.get('chunk_size', 'Unknown')}")
+                st.write(f"**Top K Results:** {stats.get('top_k_results', 'Unknown')}")
+                st.write(f"**Similarity Threshold:** {stats.get('similarity_threshold', 'Unknown')}")
+            
+        except Exception as e:
+            st.error(f"Error loading stats: {str(e)}")
         
         # Reset system
         if st.button("🔄 Reset System", type="secondary"):
             if st.session_state.rag_system.reset_system():
-                st.session_state.system_initialized = False
                 st.session_state.chat_history = []
                 st.success("System reset successfully!")
                 st.rerun()
@@ -204,74 +194,51 @@ def main():
     with col1:
         st.header("💬 Chat Interface")
         
-        # Display system status
-        if not st.session_state.system_initialized:
-            st.info("👈 Please initialize the system with sample data using the sidebar to start chatting!")
-        else:
-            # Chat input
-            user_input = st.text_input(
-                "Ask me about disasters, emergency management, or safety measures:",
-                placeholder="e.g., What should I do during an earthquake?",
-                key="user_input"
-            )
-            
-            col_send, col_clear = st.columns([1, 1])
-            
-            with col_send:
-                send_button = st.button("Send", type="primary", use_container_width=True)
-            
-            with col_clear:
-                if st.button("Clear Chat", use_container_width=True):
-                    st.session_state.chat_history = []
-                    st.rerun()
-            
-            # Process user input
-            if send_button and user_input:
-                with st.spinner("Thinking..."):
-                    try:
-                        response = st.session_state.rag_system.query(user_input)
-                        
-                        # Add to chat history
-                        st.session_state.chat_history.append({
-                            'user': user_input,
-                            'assistant': response['answer'],
-                            'sources': response['sources'],
-                            'metadata': {
-                                'model': response['model_used'],
-                                'retrieved_docs': response['retrieved_documents'],
-                                'tokens': response['token_usage']
-                            }
-                        })
-                        
-                    except Exception as e:
-                        st.error(f"Error processing query: {str(e)}")
-            
-            # Display chat history
-            if st.session_state.chat_history:
-                st.markdown("### Chat History")
-                
-                for i, chat in enumerate(reversed(st.session_state.chat_history)):
-                    # User message
-                    display_chat_message(chat['user'], is_user=True)
+        # Chat input
+        user_input = st.text_input(
+            "Ask me about disasters, emergency management, or safety measures:",
+            placeholder="e.g., What should I do during an earthquake?",
+            key="user_input"
+        )
+        
+        col_send, col_clear = st.columns([1, 1])
+        
+        with col_send:
+            send_button = st.button("Send", type="primary", use_container_width=True)
+        
+        with col_clear:
+            if st.button("Clear Chat", use_container_width=True):
+                st.session_state.chat_history = []
+                st.rerun()
+        
+        # Process user input
+        if send_button and user_input:
+            with st.spinner("Thinking..."):
+                try:
+                    response = st.session_state.rag_system.query(user_input)
                     
-                    # Assistant message
-                    display_chat_message(chat['assistant'], is_user=False)
+                    # Add to chat history
+                    st.session_state.chat_history.append({
+                        'user': user_input,
+                        'assistant': response['answer'],
+                        'sources': response['sources'],
+                        'metadata': {
+                            'model': response['model_used'],
+                            'retrieved_docs': response['retrieved_documents'],
+                            'tokens': response['token_usage']
+                        }
+                    })
                     
-                    # Display sources
-                    if chat['sources']:
-                        display_sources(chat['sources'])
-                    
-                    # Metadata
-                    with st.expander(f"Response Details"):
-                        col_model, col_docs, col_tokens = st.columns(3)
-                        with col_model:
-                            st.metric("Model Used", chat['metadata']['model'])
-                        with col_docs:
-                            st.metric("Documents Retrieved", chat['metadata']['retrieved_docs'])
-                        with col_tokens:
-                            st.metric("Total Tokens", chat['metadata']['tokens']['total'])
-                    
-                    st.markdown("---")
+                except Exception as e:
+                    st.error(f"Error processing query: {str(e)}")
+        
+        # Display chat history
+        for message in reversed(st.session_state.chat_history):
+            display_chat_message(message['user'], is_user=True)
+            display_chat_message(message['assistant'], is_user=False)
+            
+            if message['sources']:
+                display_sources(message['sources'])
     
     with col2:
         st.header("📋 Quick Actions")
@@ -289,27 +256,24 @@ def main():
         
         for question in sample_questions:
             if st.button(question, key=f"sample_{hash(question)}", use_container_width=True):
-                if st.session_state.system_initialized:
-                    with st.spinner("Processing..."):
-                        try:
-                            response = st.session_state.rag_system.query(question)
-                            
-                            st.session_state.chat_history.append({
-                                'user': question,
-                                'assistant': response['answer'],
-                                'sources': response['sources'],
-                                'metadata': {
-                                    'model': response['model_used'],
-                                    'retrieved_docs': response['retrieved_documents'],
-                                    'tokens': response['token_usage']
-                                }
-                            })
-                            st.rerun()
-                            
-                        except Exception as e:
-                            st.error(f"Error: {str(e)}")
-                else:
-                    st.warning("Please initialize the system first!")
+                with st.spinner("Processing..."):
+                    try:
+                        response = st.session_state.rag_system.query(question)
+                        
+                        st.session_state.chat_history.append({
+                            'user': question,
+                            'assistant': response['answer'],
+                            'sources': response['sources'],
+                            'metadata': {
+                                'model': response['model_used'],
+                                'retrieved_docs': response['retrieved_documents'],
+                                'tokens': response['token_usage']
+                            }
+                        })
+                        st.rerun()
+                        
+                    except Exception as e:
+                        st.error(f"Error: {str(e)}")
         
         # System information
         st.markdown("### ℹ️ About This System")
