@@ -7,7 +7,7 @@ import json
 from datetime import datetime
 
 def check_experiment_status():
-    """Check status of all 8 experiments"""
+    """Check status of all 16 experiments"""
     
     # All experiments configuration
     experiments = [
@@ -58,6 +58,54 @@ def check_experiment_status():
             'description': 'bge-small-en-v1.5 + llama-3.1-8b-instant',
             'embedding_model': 'bge-small-en-v1.5',
             'llm_model': 'llama-3.1-8b-instant'
+        },
+        {
+            'name': 'Experiment_9',
+            'description': 'all-MiniLM-L6-v2 + llama-3.3-70b-versatile',
+            'embedding_model': 'all-MiniLM-L6-v2',
+            'llm_model': 'llama-3.3-70b-versatile'
+        },
+        {
+            'name': 'Experiment_10',
+            'description': 'all-MiniLM-L12-v2 + llama-3.3-70b-versatile',
+            'embedding_model': 'all-MiniLM-L12-v2',
+            'llm_model': 'llama-3.3-70b-versatile'
+        },
+        {
+            'name': 'Experiment_11',
+            'description': 'all-MiniLM-L6-v2 + llama-3.1-8b-instant',
+            'embedding_model': 'all-MiniLM-L6-v2',
+            'llm_model': 'llama-3.1-8b-instant'
+        },
+        {
+            'name': 'Experiment_12',
+            'description': 'all-MiniLM-L12-v2 + llama-3.1-8b-instant',
+            'embedding_model': 'all-MiniLM-L12-v2',
+            'llm_model': 'llama-3.1-8b-instant'
+        },
+        {
+            'name': 'Experiment_13',
+            'description': 'bge-small-en-v1.5 + llama3-70b-8192',
+            'embedding_model': 'bge-small-en-v1.5',
+            'llm_model': 'llama3-70b-8192'
+        },
+        {
+            'name': 'Experiment_14',
+            'description': 'bge-small-en-v1.5 + mixtral-8x7b-32768',
+            'embedding_model': 'bge-small-en-v1.5',
+            'llm_model': 'mixtral-8x7b-32768'
+        },
+        {
+            'name': 'Experiment_15',
+            'description': 'bge-base-en-v1.5 + llama3-70b-8192',
+            'embedding_model': 'bge-base-en-v1.5',
+            'llm_model': 'llama3-70b-8192'
+        },
+        {
+            'name': 'Experiment_16',
+            'description': 'bge-base-en-v1.5 + mixtral-8x7b-32768',
+            'embedding_model': 'bge-base-en-v1.5',
+            'llm_model': 'mixtral-8x7b-32768'
         }
     ]
     

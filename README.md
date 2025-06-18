@@ -153,9 +153,18 @@ The experiments are:
 3. all-MiniLM-L6-v2 + mixtral-8x7b-32768 - done
 4. all-MiniLM-L12-v2 + mixtral-8x7b-32768 - done
 5. bge-small-en-v1.5 + llama-3.3-70b-versatile - done
-6. bge-base-en-v1.5 + llama-3.3-70b-versatile
-7. bge-base-en-v1.5 + llama-3.1-8b-instant
-8. bge-small-en-v1.5 + llama-3.1-8b-instant
+6. bge-base-en-v1.5 + llama-3.3-70b-versatile - running
+7. bge-base-en-v1.5 + llama-3.1-8b-instant - done
+8. bge-small-en-v1.5 + llama-3.1-8b-instant - running
+
+9. all-MiniLM-L6-v2 + llama-3.3-70b-versatile
+10. all-MiniLM-L12-v2 + llama-3.3-70b-versatile
+11. all-MiniLM-L6-v2 + llama-3.1-8b-instant
+12. all-MiniLM-L12-v2 + llama-3.1-8b-instant
+13. bge-small-en-v1.5 + llama3-70b-8192
+14. bge-small-en-v1.5 + mixtral-8x7b-32768
+15. bge-base-en-v1.5 + llama3-70b-8192
+16. bge-base-en-v1.5 + mixtral-8x7b-32768
 
 
 And the detailed results will be saved in the JSON file in the batch_experiment_results directory. You can check all your experiment results at any time using:

@@ -24,10 +24,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 def run_experiment(experiment_number: int):
-    """Run a single experiment by its number (1-8)"""
+    """Run a single experiment by its number (1-16)"""
     try:
-        if not 1 <= experiment_number <= 8:
-            raise ValueError("Experiment number must be between 1 and 8")
+        if not 1 <= experiment_number <= 16:
+            raise ValueError("Experiment number must be between 1 and 16")
         
         print(f"🚀 Starting Experiment {experiment_number}")
         print("="*50)
@@ -65,10 +65,10 @@ def main():
         # Get experiment number from user
         while True:
             try:
-                experiment_number = int(input("\nEnter experiment number (1-8): "))
-                if 1 <= experiment_number <= 8:
+                experiment_number = int(input("\nEnter experiment number (1-16): "))
+                if 1 <= experiment_number <= 16:
                     break
-                print("Please enter a number between 1 and 8")
+                print("Please enter a number between 1 and 16")
             except ValueError:
                 print("Please enter a valid number")
         

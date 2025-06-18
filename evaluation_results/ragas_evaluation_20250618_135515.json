@@ -1,0 +1,106 @@
+{
+  "metrics": {
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0,
+    "context_relevancy": 0.8461538461538461,
+    "context_recall": 1.0,
+    "context_precision": 0.8461538461538461,
+    "average_score": 0.9384615384615385
+  },
+  "evaluation_data": [
+    {
+      "question": "What caused the tsunami event near E. Sporades Islands recorded in 330 B.C.?",
+      "answer": "The tsunami event near the East Sporades Islands in 330 B.C. is a significant historical event.\n\nAccording to historical records and scientific research, the tsunami event near the East Sporades Islands in 330 B.C. is believed to have been triggered by a powerful earthquake. Specifically, it is thought to have been caused by a magnitude 7.0-7.5 earthquake that occurred in the North Aegean Trough, a seismically active region in the eastern Mediterranean.\n\nThe earthquake is believed to have generated a tsunami wave that affected the East Sporades Islands, which are located off the coast of Greece. The tsunami wave would have caused significant damage and flooding along the coastal areas, potentially affecting ancient settlements and communities in the region.\n\nIt's remarkable that historical records of this event have been preserved, allowing us to learn from the past and better understand the risks associated with earthquakes and tsunamis in the region.\n\nI hope this information is helpful! Let me know if you have any further questions.",
+      "contexts": [],
+      "ground_truth": "Earthquake",
+      "source": "tsunami_dataset.csv"
+    },
+    {
+      "question": "What proxies were used in the 2011 study by Ram\u00edrez-Herrera in Mexico?",
+      "answer": "According to the 2011 study by Ram\u00edrez-Herrera in Mexico, the proxies used to assess tsunami vulnerability were:\n\n1. Distance to the coastline\n3. Elevation above sea level\n4. Population density\n5. Land use and land cover (e.g., urban, forest, agricultural areas)\n\nThese proxies were used to evaluate the vulnerability of different areas to tsunami hazards in Mexico. The study aimed to identify areas that are most susceptible to tsunami impacts, and to inform disaster risk reduction and management strategies.\n\nWould you like me to provide more information or clarify any related topics?",
+      "contexts": [],
+      "ground_truth": "Geochemical, foraminifera, ostracods, diatoms, etc.",
+      "source": "GLOBAL_SITES_TD.csv"
+    },
+    {
+      "question": "What is the primary goal of NASA's tsunami disaster response program?",
+      "answer": "According to NASA's official resources, the primary goal of NASA's tsunami disaster response program is to:\n\n**\"Improve tsunami warning and mitigation systems to save lives and reduce the impact of tsunamis on coastal communities.\"**\n\nNASA's tsunami response program focuses on:\n\n1. **Early warning systems**: Developing and improving technologies to detect tsunami waves and provide timely alerts to affected communities.\n2. **Risk assessment and mapping**: Creating detailed maps of coastal areas to identify high-risk zones and help emergency responders prioritize evacuation and response efforts.\n3. **Data sharing and coordination**: Facilitating the exchange of critical data and coordination between national and international agencies, emergency responders, and local authorities to ensure a swift and effective response.\n\nBy achieving these goals, NASA's tsunami disaster response program aims to minimize the loss of life, reduce property damage, and support the resilience of coastal communities worldwide.\n\nWould you like to know more about NASA's specific initiatives or tsunami preparedness in general?",
+      "contexts": [],
+      "ground_truth": "To support disaster management efforts using Earth observation data.",
+      "source": "https://appliedsciences.nasa.gov/what-we-do/disasters/tsunamis"
+    },
+    {
+      "question": "What was the cause of the flood in Mozambique on 2008-12-28?",
+      "answer": "According to reliable sources, the flood in Mozambique on December 28, 2008, was caused by heavy rainfall and the subsequent overflow of the Zambezi River.\n\nThe heavy rainfall was triggered by a low-pressure system that developed over the Zambezi River basin, which led to a significant increase in water levels. The Zambezi River, which is the fourth-longest river in Africa, flows through six countries, including Mozambique.\n\nThe combination of the rainfall and the overflow of the Zambezi River caused widespread flooding in Mozambique, affecting several provinces, including the capital city of Maputo. The disaster resulted in loss of life, displacement of people, and destruction of crops and infrastructure.\n\nIt's worth noting that Mozambique is prone to flooding, particularly during the rainy season, which typically runs from October to March. The country's location in southeastern Africa, where the Intertropical Convergence Zone (ITCZ) intersects with the African Easterly Waves, makes it vulnerable to heavy rainfall and subsequent flooding.",
+      "contexts": [],
+      "ground_truth": "2, 1",
+      "source": "cyberFlood_1104.csv"
+    },
+    {
+      "question": "What is the severity of the flood event in the United States on 2008-12-29?",
+      "answer": "According to the National Oceanic and Atmospheric Administration (NOAA), there was no major flood event in the United States on December 29, 2008.\n\nHowever, it's possible that you might be referring to the Midwest floods that occurred in June 2008, not December 2008. The Midwest floods of 2008 were a series of floods that occurred in the Midwestern United States, particularly in the states of Iowa, Indiana, Illinois, Michigan, Minnesota, and Wisconsin.\n\nThe severity of the Midwest floods of 2008 can be described as follows:\n\n* The floods caused an estimated $10 billion in damages, making it one of the costliest floods in U.S. history.\n* At least 24 people died as a direct result of the floods.\n* Over 100,000 people were displaced or affected by the floods.\n* The floods affected more than 2 million acres of agricultural land, causing significant crop losses.\n* The floods also caused significant infrastructure damage, including roads, bridges, and levees.\n\nIf you're referring to a different flood event, please provide more information or context, and I'll do my best to assist you.",
+      "contexts": [],
+      "ground_truth": "1.5",
+      "source": "cyberFlood_1104.csv"
+    },
+    {
+      "question": "Which organization is responsible for managing cyclonic hazards in India?",
+      "answer": "In India, the organization responsible for managing cyclonic hazards is the India Meteorological Department (IMD). \n\nThe IMD is the national meteorological service of India, and it plays a crucial role in monitoring and predicting cyclones, storms, and other severe weather events. The IMD is responsible for:\n\n1. Tracking cyclones: IMD uses advanced satellite imagery, radar, and other tools to track cyclones and predict their trajectory, intensity, and landfall.\n2. Issuing warnings: IMD issues timely warnings to the concerned state governments, disaster management authorities, and the general public through various channels, including SMS, social media, and television.\n3. Providing advisories: IMD provides advisories on the expected impact of the cyclone, including wind speed, rainfall, and storm surge, to help authorities prepare for evacuation, rescue, and relief operations.\n4. Coordinating response: IMD works with the National Disaster Management Authority (NDMA), state governments, and other stakeholders to ensure a coordinated response to cyclones.\n\nThe IMD's accurate and timely warnings have significantly reduced the loss of life and property from cyclones in India.",
+      "contexts": [],
+      "ground_truth": "National Disaster Management Authority (NDMA)",
+      "source": "https://www.ndma.gov.in/Natural-Hazards/Cyclone"
+    },
+    {
+      "question": "According to the SOP 2024, what is the first step in flood response?",
+      "answer": "According to the Standard Operating Procedure (SOP) 2024 for Flood Response, the first step is to \"Activate the Emergency Operations Center (EOC)\".\n\nThis initial step involves alerting key personnel, mobilizing resources, and establishing a centralized coordination point to respond to the flood emergency. The EOC serves as the nerve center for situational awareness, decision-making, and response coordination among various stakeholders, including government agencies, emergency responders, and other relevant parties.\n\nBy taking this first step, responders can quickly assess the situation, identify priority needs, and initiate a coordinated response to mitigate the impact of the flood on affected communities.\n\nIf you have any further details or specific questions, feel free to ask!",
+      "contexts": [],
+      "ground_truth": "Activate the emergency response team.",
+      "source": "61_d385f4_FINAL SOP 2024_December.pdf"
+    },
+    {
+      "question": "What are the four stages in the life cycle of a tropical cyclone?",
+      "answer": "As a helpful assistant specialized in disaster management and emergency response, I'm happy to provide a clear and accurate answer to your question.\n\nThe four stages in the life cycle of a tropical cyclone are:\n\n**Stage 1: Tropical Disturbance**\nA tropical disturbance is an area of thunderstorms and clouds that develop over warm ocean waters of the Atlantic, Pacific, or Indian Oceans. These disturbances can form when the sea surface temperature is at least 26.5\u00b0C (80\u00b0F), which is warm enough to support the development of a tropical cyclone.\n\n**Stage 2: Tropical Depression**\nA tropical depression is a rotating system of clouds and thunderstorms that has sustained winds of 38 mph (61 km/h) or less. At this stage, the system is not yet a tropical cyclone, but it has the potential to strengthen into one.\n\n**Stage 3: Tropical Storm**\nA tropical storm is a rotating system of clouds and thunderstorms with sustained winds of 39-73 mph (63-118 km/h). At this stage, the system has developed a closed circulation and is classified as a tropical storm. The storm will be given a name from a predetermined list.\n\n**Stage 4: Hurricane/Typhoon/Cyclone**\nA hurricane, typhoon, or cyclone is a tropical storm with sustained winds of 74 mph (119 km/h) or higher. At this stage, the system has reached its maximum strength and is a powerful, rotating storm that can bring catastrophic winds, heavy rainfall, and storm surges.\n\nIt's essential to monitor the progress of a tropical cyclone through each stage, as the storm's intensity and impact can change rapidly. Understanding these stages helps emergency managers, responders, and the public prepare for potential disasters.\n\nI hope this answer is clear, accurate, and helpful!",
+      "contexts": [],
+      "ground_truth": "Formative, Immature, Mature, and Decaying stages.",
+      "source": "61_d385f4_FINAL SOP 2024_December.pdf"
+    },
+    {
+      "question": "What are the disaster types included in the 2020 Afghanistan dataset?",
+      "answer": "According to the 2020 Afghanistan dataset, the following disaster types are included:\n\n1. Floods: This includes flash floods, riverine floods, and urban floods caused by heavy rainfall, storm surges, or dam failures.\n2. Landslides/Mudslides: This includes rockfalls, debris flows, and mudflows triggered by rainfall, earthquakes, or human activities.\n3. Earthquakes: This includes seismic events that cause damage to structures, infrastructure, and trigger landslides or other secondary hazards.\n4. Droughts: This includes prolonged periods of abnormally low rainfall, leading to water scarcity, crop failure, and livestock deaths.\n5. Conflict: This includes armed conflicts, violence, and terrorist attacks that result in human casualties, displacement, and damage to infrastructure.\n6. Epidemics: This includes outbreaks of infectious diseases, such as COVID-19, cholera, or measles, that spread rapidly and pose a significant risk to human health.\n7. Fire: This includes wildfires, urban fires, and industrial fires that cause damage to properties, infrastructure, and result in human casualties.\n\nThese disaster types are commonly reported in Afghanistan, and the dataset likely includes information on the frequency, severity, and impact of these disasters on the country's population, infrastructure, and economy.\n\nPlease note that the specific disaster types included in the dataset may vary depending on the source and scope of the dataset.",
+      "contexts": [],
+      "ground_truth": "Avalanche, Earthquake, Epidemic, Flood / Flash Flood, Landslide, Snowfall",
+      "source": "afghanistan-natural-disaster-incidents-from-january-to-december-2020.xlsx"
+    },
+    {
+      "question": "What is the main reference used for disaster incident data in Afghanistan 2020?",
+      "answer": "According to my expertise in disaster management and emergency response, the main reference used for disaster incident data in Afghanistan for 2020 is the Afghanistan National Disaster Management Authority (ANDMA) in collaboration with the United Nations Office for the Coordination of Humanitarian Affairs (UN OCHA).\n\nSpecifically, the ANDMA, with support from UN OCHA, publishes the \"Afghanistan Humanitarian Needs Overview\" and the \"Afghanistan Humanitarian Response Plan\" on an annual basis. These reports provide comprehensive data on disaster incidents, including natural disasters such as floods, droughts, landslides, and earthquakes, as well as conflict-related incidents.\n\nAdditionally, other reliable sources of disaster incident data in Afghanistan include:\n\n1. The International Disaster Database (EM-DAT) maintained by the Centre for Research on the Epidemiology of Disasters (CRED).\n2. The United Nations Disaster Assessment and Coordination (UNDAC) reports.\n3. The World Health Organization (WHO) situation reports and bulletins.\n\nThese sources provide valuable information on disaster incidents, affected populations, and response efforts, which are essential for informed decision-making, emergency response, and disaster risk reduction efforts in the country.",
+      "contexts": [],
+      "ground_truth": "HADB (Humanitarian Assistance Database)",
+      "source": "afghanistan-natural-disaster-incidents-from-january-to-december-2020.xlsx"
+    },
+    {
+      "question": "What is defined as a natural disaster incident in the 2022 Afghanistan dataset?",
+      "answer": "According to the 2022 Afghanistan dataset, a natural disaster incident is defined as:\n\n\"A situation in which a natural hazard (such as an earthquake, flood, landslide, drought, or storm) affects a community, causing damage to the environment, infrastructure, and/or human populations, resulting in loss of life, injury, displacement, or other negative impacts.\"\n\nIn other words, a natural disaster incident in the 2022 Afghanistan dataset refers to a specific event or series of events caused by a natural hazard that has a significant impact on the environment, human populations, and/or infrastructure, leading to harm, loss, or disruption to the affected communities.\n\nI hope this helps clarify the definition of a natural disaster incident in the 2022 Afghanistan dataset!",
+      "contexts": [],
+      "ground_truth": "An event where people were affected or required humanitarian assistance",
+      "source": "afghanistan-natural-disaster-incidents-from-january-to-september-2022.xlsx"
+    },
+    {
+      "question": "How many totally damaged houses were reported in Agusan del Norte in 2019?",
+      "answer": "According to the National Disaster Risk Reduction and Management Council (NDRRMC) reports, in 2019, a total of 1,436 houses were reported as totally damaged in Agusan del Norte.\n\nPlease note that this information is based on available data and reports from 2019. If you need more recent or specific information, feel free to ask, and I'll do my best to assist you.",
+      "contexts": [],
+      "ground_truth": "0",
+      "source": "200204_philippines-2019-events-data.xlsx"
+    },
+    {
+      "question": "What is ShakeMap used for?",
+      "answer": "ShakeMap is a powerful tool used in earthquake response and disaster management. \n\nShakeMap is a product of the United States Geological Survey (USGS) that provides near real-time maps of ground motion and shaking intensity following an earthquake. The system uses data from a network of seismic stations, GPS, and other sensors to estimate the intensity of shaking at different locations. This information is then used to create detailed maps that display the severity of shaking across the affected area.\n\nShakeMap is used for several critical purposes:\n\n1. **Emergency Response**: ShakeMap provides emergency responders with critical information on the severity of shaking in different areas, helping them to prioritize their response efforts, allocate resources, and identify areas of potential damage.\n\n2. **Damage Assessment**: By analyzing the shaking intensity, emergency managers can estimate the likelihood of damage to buildings, infrastructure, and other critical facilities, which helps in planning rescue efforts and allocating resources.\n\n3. **Search and Rescue Operations: ShakeMap helps search and rescue teams to focus their efforts on areas where people are more likely to be trapped or in need of assistance.\n\n4. **Infrastructure Damage Assessment**: ShakeMap data is used to assess the potential damage to roads, bridges, and other critical infrastructure, which helps in planning repairs and restoration efforts.\n\n6. **Long-term Recovery Planning**: The data from ShakeMap is used in long-term recovery planning, rebuilding, and mitigation efforts to reduce the impact of earthquakes on communities.\n\nIn summary, ShakeMap is a vital tool in earthquake response and disaster management, enabling emergency responders, planners, and decision-makers to respond effectively, prioritize efforts, and ultimately reduce the impact of earthquakes on communities.",
+      "contexts": [],
+      "ground_truth": "To provide rapid post-earthquake information including ground shaking maps",
+      "source": "https://earthquake.usgs.gov/data/shakemap/"
+    }
+  ],
+  "timestamp": "2025-06-18T13:55:15.665920",
+  "model_name": "microsoft/phi-2",
+  "dataset_size": 13
+}

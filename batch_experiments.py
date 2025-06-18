@@ -29,7 +29,7 @@ class BatchExperimentRunner:
     def __init__(self):
         self.config = Config()
         
-        # All 8 Experiments Configuration:
+        # All 16 Experiments Configuration:
         # Experiment 1: all-MiniLM-L6-v2 + llama3-70b-8192 (COMPLETED)
         # Experiment 2: all-MiniLM-L12-v2 + llama3-70b-8192
         # Experiment 3: all-MiniLM-L6-v2 + mixtral-8x7b-32768
@@ -38,6 +38,14 @@ class BatchExperimentRunner:
         # Experiment 6: bge-base-en-v1.5 + llama-3.3-70b-versatile
         # Experiment 7: bge-base-en-v1.5 + llama-3.1-8b-instant
         # Experiment 8: bge-small-en-v1.5 + llama-3.1-8b-instant
+        # Experiment 9: all-MiniLM-L6-v2 + llama-3.3-70b-versatile
+        # Experiment 10: all-MiniLM-L12-v2 + llama-3.3-70b-versatile
+        # Experiment 11: all-MiniLM-L6-v2 + llama-3.1-8b-instant
+        # Experiment 12: all-MiniLM-L12-v2 + llama-3.1-8b-instant
+        # Experiment 13: bge-small-en-v1.5 + llama3-70b-8192
+        # Experiment 14: bge-small-en-v1.5 + mixtral-8x7b-32768
+        # Experiment 15: bge-base-en-v1.5 + llama3-70b-8192
+        # Experiment 16: bge-base-en-v1.5 + mixtral-8x7b-32768
         
         self.experiments = [
             {
@@ -94,6 +102,62 @@ class BatchExperimentRunner:
                 'description': 'bge-small-en-v1.5 + llama-3.1-8b-instant',
                 'embedding_model': 'bge-small-en-v1.5',
                 'llm_model': 'llama-3.1-8b-instant',
+                'ragas_model': 'microsoft/phi-2'
+            },
+            {
+                'name': 'Experiment_9',
+                'description': 'all-MiniLM-L6-v2 + llama-3.3-70b-versatile',
+                'embedding_model': 'all-MiniLM-L6-v2',
+                'llm_model': 'llama-3.3-70b-versatile',
+                'ragas_model': 'microsoft/phi-2'
+            },
+            {
+                'name': 'Experiment_10',
+                'description': 'all-MiniLM-L12-v2 + llama-3.3-70b-versatile',
+                'embedding_model': 'all-MiniLM-L12-v2',
+                'llm_model': 'llama-3.3-70b-versatile',
+                'ragas_model': 'microsoft/phi-2'
+            },
+            {
+                'name': 'Experiment_11',
+                'description': 'all-MiniLM-L6-v2 + llama-3.1-8b-instant',
+                'embedding_model': 'all-MiniLM-L6-v2',
+                'llm_model': 'llama-3.1-8b-instant',
+                'ragas_model': 'microsoft/phi-2'
+            },
+            {
+                'name': 'Experiment_12',
+                'description': 'all-MiniLM-L12-v2 + llama-3.1-8b-instant',
+                'embedding_model': 'all-MiniLM-L12-v2',
+                'llm_model': 'llama-3.1-8b-instant',
+                'ragas_model': 'microsoft/phi-2'
+            },
+            {
+                'name': 'Experiment_13',
+                'description': 'bge-small-en-v1.5 + llama3-70b-8192',
+                'embedding_model': 'bge-small-en-v1.5',
+                'llm_model': 'llama3-70b-8192',
+                'ragas_model': 'microsoft/phi-2'
+            },
+            {
+                'name': 'Experiment_14',
+                'description': 'bge-small-en-v1.5 + mixtral-8x7b-32768',
+                'embedding_model': 'bge-small-en-v1.5',
+                'llm_model': 'mixtral-8x7b-32768',
+                'ragas_model': 'microsoft/phi-2'
+            },
+            {
+                'name': 'Experiment_15',
+                'description': 'bge-base-en-v1.5 + llama3-70b-8192',
+                'embedding_model': 'bge-base-en-v1.5',
+                'llm_model': 'llama3-70b-8192',
+                'ragas_model': 'microsoft/phi-2'
+            },
+            {
+                'name': 'Experiment_16',
+                'description': 'bge-base-en-v1.5 + mixtral-8x7b-32768',
+                'embedding_model': 'bge-base-en-v1.5',
+                'llm_model': 'mixtral-8x7b-32768',
                 'ragas_model': 'microsoft/phi-2'
             }
         ]
