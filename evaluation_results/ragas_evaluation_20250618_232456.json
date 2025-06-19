@@ -1,0 +1,87 @@
+{
+  "metrics": {
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0,
+    "context_relevancy": 1.0,
+    "context_recall": 0.875,
+    "context_precision": 1.0,
+    "average_score": 0.975
+  },
+  "evaluation_data": [
+    {
+      "question": "What is the magnitude of the 2015 Nepal earthquake?",
+      "answer": "The 2015 Nepal earthquake had a magnitude of 7.8 on the Richter scale.",
+      "contexts": [
+        "The 2015 Nepal earthquake occurred on April 25 with a magnitude of 7.8. It caused widespread damage in Kathmandu and surrounding areas."
+      ],
+      "ground_truth": "The 2015 Nepal earthquake had a magnitude of 7.8.",
+      "source": "earthquake_data"
+    },
+    {
+      "question": "How many people died in the 2004 Indian Ocean tsunami?",
+      "answer": "The 2004 tsunami killed about 50 people.",
+      "contexts": [
+        "The 2004 Indian Ocean tsunami was one of the deadliest natural disasters in recorded history, causing approximately 230,000 deaths across 14 countries."
+      ],
+      "ground_truth": "The 2004 Indian Ocean tsunami caused approximately 230,000 deaths.",
+      "source": "tsunami_data"
+    },
+    {
+      "question": "What are the main causes of floods?",
+      "answer": "Floods are caused by heavy rainfall and snowmelt.",
+      "contexts": [
+        "The weather in Paris is usually mild with occasional rain. The city has many beautiful parks and gardens."
+      ],
+      "ground_truth": "Floods are primarily caused by heavy rainfall, snowmelt, and dam failures.",
+      "source": "flood_data"
+    },
+    {
+      "question": "What was the magnitude of the 2011 Japan earthquake?",
+      "answer": "The 2011 Japan earthquake had a magnitude of 3.2.",
+      "contexts": [
+        "The 2011 Tohoku earthquake in Japan had a magnitude of 9.0 and triggered a devastating tsunami."
+      ],
+      "ground_truth": "The 2011 Japan earthquake had a magnitude of 9.0.",
+      "source": "earthquake_data"
+    },
+    {
+      "question": "What are the warning signs of a tsunami?",
+      "answer": "I like pizza and ice cream. The weather is nice today.",
+      "contexts": [
+        "Tsunami warning signs include unusual ocean behavior, rapid water level changes, and earthquake activity near coastal areas."
+      ],
+      "ground_truth": "Tsunami warning signs include unusual ocean behavior and rapid water level changes.",
+      "source": "tsunami_data"
+    },
+    {
+      "question": "What was the death toll of Hurricane Katrina?",
+      "answer": "Hurricane Katrina caused significant damage.",
+      "contexts": [
+        "Hurricane Katrina was a powerful storm."
+      ],
+      "ground_truth": "Hurricane Katrina caused over 1,800 deaths.",
+      "source": "hurricane_data"
+    },
+    {
+      "question": "What causes earthquakes?",
+      "answer": "Earthquakes are caused by various factors.",
+      "contexts": [
+        "Earthquakes are caused by the sudden release of energy in the Earth's crust, usually due to tectonic plate movements."
+      ],
+      "ground_truth": "Earthquakes are caused by tectonic plate movements and the release of energy in the Earth's crust.",
+      "source": "earthquake_data"
+    },
+    {
+      "question": "What are the effects of volcanic eruptions?",
+      "answer": "Volcanic eruptions can cause lava flows and ash clouds.",
+      "contexts": [
+        "Volcanic eruptions can cause lava flows, ash clouds, pyroclastic flows, and climate changes. They can also trigger tsunamis and earthquakes."
+      ],
+      "ground_truth": "Volcanic eruptions can cause lava flows, ash clouds, pyroclastic flows, and climate changes.",
+      "source": "volcano_data"
+    }
+  ],
+  "timestamp": "2025-06-18T23:24:56.716758",
+  "model_name": "microsoft/phi-2",
+  "dataset_size": 8
+}

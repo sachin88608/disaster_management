@@ -169,3 +169,10 @@ The experiments are:
 
 And the detailed results will be saved in the JSON file in the batch_experiment_results directory. You can check all your experiment results at any time using:
 python experiment_status.py
+
+
+
+
+Hugging Face Token for google/gemma-2b-it Evaluation model: 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
+Token Generation link :  https://huggingface.co/settings/tokens
+https://huggingface.co/google/gemma-2b-it

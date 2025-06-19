@@ -1,0 +1,60 @@
+{
+  "metrics": {
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0,
+    "context_relevancy": 1.0,
+    "context_recall": 0.6,
+    "context_precision": 1.0,
+    "average_score": 0.9199999999999999
+  },
+  "evaluation_data": [
+    {
+      "question": "What is the magnitude of the 2015 Nepal earthquake?",
+      "answer": "The 2015 Nepal earthquake had a magnitude of 7.8 on the Richter scale.",
+      "contexts": [
+        "The 2015 Nepal earthquake occurred on April 25 with a magnitude of 7.8. It caused widespread damage in Kathmandu and surrounding areas."
+      ],
+      "ground_truth": "The 2015 Nepal earthquake had a magnitude of 7.8.",
+      "source": "earthquake_data"
+    },
+    {
+      "question": "How many people died in the 2004 Indian Ocean tsunami?",
+      "answer": "The 2004 Indian Ocean tsunami caused approximately 230,000 deaths across 14 countries.",
+      "contexts": [
+        "The 2004 Indian Ocean tsunami was one of the deadliest natural disasters in recorded history, causing approximately 230,000 deaths across 14 countries."
+      ],
+      "ground_truth": "The 2004 Indian Ocean tsunami caused approximately 230,000 deaths.",
+      "source": "tsunami_data"
+    },
+    {
+      "question": "What is the capital of France?",
+      "answer": "The capital of France is Paris.",
+      "contexts": [
+        "Paris is the capital and largest city of France. It is known for its culture, art, and cuisine."
+      ],
+      "ground_truth": "Paris is the capital of France.",
+      "source": "general_knowledge"
+    },
+    {
+      "question": "What are the main causes of floods?",
+      "answer": "Floods are caused by heavy rainfall, snowmelt, and dam failures.",
+      "contexts": [
+        "Floods can be caused by various factors including heavy rainfall, rapid snowmelt, dam or levee failures, and storm surges."
+      ],
+      "ground_truth": "Floods are primarily caused by heavy rainfall, snowmelt, and dam failures.",
+      "source": "flood_data"
+    },
+    {
+      "question": "What is the weather like today?",
+      "answer": "I cannot provide current weather information.",
+      "contexts": [
+        "This is a disaster management chatbot focused on historical disaster data."
+      ],
+      "ground_truth": "The chatbot should not provide current weather information.",
+      "source": "system_info"
+    }
+  ],
+  "timestamp": "2025-06-18T22:47:03.376387",
+  "model_name": "microsoft/phi-2",
+  "dataset_size": 5
+}
