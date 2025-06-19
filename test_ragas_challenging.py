@@ -90,7 +90,7 @@ def test_challenging_evaluation():
     
     # Initialize evaluator
     print("\nInitializing RAGAS evaluator...")
-    evaluator = RAGASEvaluator(model_name="google/gemma-2b-it")
+    evaluator = RAGASEvaluator(model_name="mistralai/Mistral-7B-Instruct-v0.2")
     
     # Run evaluation
     print("Running evaluation...")
@@ -181,7 +181,7 @@ def test_individual_examples():
     print("🧪 TESTING INDIVIDUAL EXAMPLES")
     print("=" * 60)
     
-    evaluator = RAGASEvaluator(model_name="google/gemma-2b-it")
+    evaluator = RAGASEvaluator(model_name="mistralai/Mistral-7B-Instruct-v0.2")
     test_data = create_challenging_test_dataset()
     
     print("Testing individual examples to see detailed scoring:")

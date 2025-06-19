@@ -119,8 +119,8 @@ class CustomHuggingFaceLLM(LLM):
             
             self.model = AutoModelForCausalLM.from_pretrained(
                 self.model_name,
-                device_map="auto" if torch.cuda.is_available() else None,
-                torch_dtype=torch.float16 if torch.cuda.is_available() else torch.float32,
+                device_map="auto",
+                torch_dtype="auto",
                 trust_remote_code=True
             )
             
@@ -129,9 +129,10 @@ class CustomHuggingFaceLLM(LLM):
                 "text-generation",
                 model=self.model,
                 tokenizer=self.tokenizer,
+                device=0,  # Use GPU
                 max_new_tokens=100,
                 do_sample=True,
-                temperature=0.1,
+                temperature=0.3,
                 pad_token_id=self.tokenizer.eos_token_id,
                 eos_token_id=self.tokenizer.eos_token_id
             )
@@ -362,7 +363,7 @@ class CustomHuggingFaceLLM(LLM):
 class RAGASEvaluator:
     """Class to evaluate RAG systems using RAGAS metrics"""
     
-    def __init__(self, model_name: str = "microsoft/phi-2"):
+    def __init__(self, model_name: str = "mistralai/Mistral-7B-Instruct-v0.2"):
         """Initialize the evaluator with a specific model"""
         self.model_name = model_name
         self.llm = CustomHuggingFaceLLM(model_name=model_name)
@@ -666,7 +667,7 @@ def main():
     """Main execution function"""
     try:
         # You can change the model here if needed
-        model_name = "microsoft/phi-2"
+        model_name = "mistralai/Mistral-7B-Instruct-v0.2"
         print(f"Initializing RAGAS evaluator with model: {model_name}")
         evaluator = RAGASEvaluator(model_name=model_name)
 

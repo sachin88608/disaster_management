@@ -61,7 +61,7 @@ def test_evaluation_logic():
     
     # Initialize evaluator
     print("\nInitializing RAGAS evaluator...")
-    evaluator = RAGASEvaluator(model_name="google/gemma-2b-it")
+    evaluator = RAGASEvaluator(model_name="mistralai/Mistral-7B-Instruct-v0.2")
     
     # Run evaluation
     print("Running evaluation...")
@@ -166,7 +166,7 @@ def test_with_real_rag():
         
         if evaluation_data:
             print(f"\nRunning evaluation on {len(evaluation_data)} real examples...")
-            evaluator = RAGASEvaluator(model_name="google/gemma-2b-it")
+            evaluator = RAGASEvaluator(model_name="mistralai/Mistral-7B-Instruct-v0.2")
             results = evaluator.evaluate(evaluation_data)
             
             if results and 'metrics' in results:
