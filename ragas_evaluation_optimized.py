@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 """
-FIXED RAGAS evaluation script for assessing RAG system performance.
-This script uses the OPTIMIZED version for better GPU performance.
+OPTIMIZED RAGAS evaluation script for assessing RAG system performance.
+This script uses batch processing and parallel execution to maximize GPU efficiency.
 
-Fixed issues:
-- Proper prompt handling and text extraction
-- Corrected async/await compatibility
-- Fixed dataset format for RAGAS
-- Improved model response cleaning
-- Better error handling and logging
-- OPTIMIZED: Uses batch processing and parallel execution
+Key optimizations:
+- Batch processing instead of sequential
+- Parallel metric calculation
+- Optimized GPU memory usage
+- Reduced redundant model calls
 """
 
 import warnings
@@ -54,7 +52,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('ragas_fixed.log'),
+        logging.FileHandler('ragas_optimized.log'),
         logging.StreamHandler()
     ]
 )
@@ -183,7 +181,7 @@ class OptimizedHuggingFaceLLM(LLM):
         return truncated_text
 
     def _clean_response(self, text: str, prompt: str = "") -> str:
-        """Clean and format the model's response - FIXED VERSION"""
+        """Clean and format the model's response"""
         try:
             # Remove the original prompt if it's included in the response
             if prompt and text.startswith(prompt):
@@ -208,15 +206,11 @@ class OptimizedHuggingFaceLLM(LLM):
             # Clean up whitespace
             text = ' '.join(text.split())
             
-            # FIXED: Don't default to "Yes" - let the model decide
             if len(text.strip()) < 3:
-                # Return a neutral response instead of defaulting to "Yes"
                 return "Unable to determine."
             
-            # Check if response contains evaluation keywords
             text = text.strip()
             if not any(word in text.lower() for word in ['yes', 'no', 'true', 'false', 'relevant', 'accurate', 'supported', 'unable', 'cannot']):
-                # If no clear evaluation words, return neutral
                 return "Unable to determine."
                 
             return text
@@ -258,7 +252,7 @@ class OptimizedHuggingFaceLLM(LLM):
     def _llm_type(self) -> str:
         return "optimized_huggingface"
 
-class RAGASEvaluator:
+class OptimizedRAGASEvaluator:
     """Optimized RAGAS evaluator with batch processing and parallel execution"""
     
     def __init__(self, model_name: str = "mistralai/Mistral-7B-Instruct-v0.2"):
@@ -432,22 +426,21 @@ class RAGASEvaluator:
         """Run the optimized evaluation process"""
         try:
             if evaluation_data is None:
-                # Load from CSV file if available
-                csv_file = "SAMPLE_EVALUATION_DATASET.csv"
-                if os.path.exists(csv_file):
-                    logger.info(f"Loading evaluation data from {csv_file}")
-                    df = pd.read_csv(csv_file)
-                    evaluation_data = []
-                    for _, row in df.iterrows():
-                        evaluation_data.append({
-                            'question': row['question'],
-                            'answer': row['answer'],
-                            'contexts': [row['context']] if pd.notna(row['context']) else [],
-                            'ground_truth': row['ground_truth'] if pd.notna(row['ground_truth']) else ''
-                        })
-                else:
-                    logger.warning(f"CSV file {csv_file} not found, using sample data")
-                    evaluation_data = []
+                # Use sample data for testing
+                evaluation_data = [
+                    {
+                        'question': 'What is the magnitude of the 2015 Nepal earthquake?',
+                        'answer': 'The 2015 Nepal earthquake had a magnitude of 7.8 on the Richter scale.',
+                        'contexts': ['The 2015 Nepal earthquake occurred on April 25 with a magnitude of 7.8. It caused widespread damage in Kathmandu and surrounding areas.'],
+                        'ground_truth': 'The 2015 Nepal earthquake had a magnitude of 7.8.'
+                    },
+                    {
+                        'question': 'How many people died in the 2004 Indian Ocean tsunami?',
+                        'answer': 'The 2004 tsunami killed about 50 people.',
+                        'contexts': ['The 2004 Indian Ocean tsunami was one of the deadliest natural disasters in recorded history, causing approximately 230,000 deaths across 14 countries.'],
+                        'ground_truth': 'The 2004 Indian Ocean tsunami caused approximately 230,000 deaths.'
+                    }
+                ]
             
             logger.info("Starting OPTIMIZED RAGAS evaluation...")
             print(f"\n🚀 OPTIMIZED EVALUATION")
@@ -509,13 +502,13 @@ class RAGASEvaluator:
             
             # Generate filename with timestamp
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-            output_file = os.path.join(results_dir, f"ragas_evaluation_{timestamp}.json")
+            output_file = os.path.join(results_dir, f"ragas_optimized_{timestamp}.json")
             
             # Save results
             with open(output_file, 'w') as f:
                 json.dump(results, f, indent=2, default=str)
             
-            logger.info(f"Results saved to {output_file}")
+            logger.info(f"Optimized results saved to {output_file}")
             
             # Print summary
             print("\n" + "="*60)
@@ -545,7 +538,7 @@ def main():
     print("=" * 60)
     
     # Create evaluator
-    evaluator = RAGASEvaluator(model_name="mistralai/Mistral-7B-Instruct-v0.2")
+    evaluator = OptimizedRAGASEvaluator(model_name="mistralai/Mistral-7B-Instruct-v0.2")
     
     # Run evaluation
     results = evaluator.evaluate()

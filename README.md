@@ -176,3 +176,24 @@ python experiment_status.py
 Hugging Face Token for google/gemma-2b-it Evaluation model: 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
 Token Generation link :  https://huggingface.co/settings/tokens
 https://huggingface.co/google/gemma-2b-it
+https://huggingface.co/google/gemma-2b-it
+
+
+
+---------------------------------------------------------------------------------------------------
+COMPLETE COMMAND SEQUENCE:
+
+
+1. Test with Your Actual Dataset
+Run --> python test_with_actual_dataset.py
+
+2. Run Experiment Setup
+Run --> python experiment_setup.py
+
+3. Run Your 16 Experiments --(Then enter the experiment number (1-16) when prompted)
+Run --> python run_single_experiment.py
+
+
+
+Check Status Anytime
+Run --> python experiment_status.py
