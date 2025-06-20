@@ -11,6 +11,7 @@ import os
 import multiprocessing
 from functools import partial
 from tqdm import tqdm
+import traceback
 
 logger = logging.getLogger(__name__)
 
@@ -79,6 +80,10 @@ class VectorStore:
         except Exception as e:
             logger.error(f"Error creating embeddings: {str(e)}")
             print(f"[DEBUG] Error creating embeddings: {str(e)}")
+            print("[DEBUG] Model name:", self.config.EMBEDDING_MODEL)
+            print("[DEBUG] First text in batch:", texts[0] if texts else "EMPTY")
+            print("[DEBUG] Full traceback:")
+            traceback.print_exc()
             return []
     
     def chunk_documents(self, documents: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
