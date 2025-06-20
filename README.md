@@ -185,12 +185,13 @@ COMPLETE COMMAND SEQUENCE:
 
 
 1. Test with Your Actual Dataset
-Run --> python test_with_actual_dataset.py
+Run --> python test_with_actual_dataset.py -- NOT WORKING
 
-2. Run Experiment Setup
+---------------------------------------------------------------------------------------------------
+1. Run Experiment Setup
 Run --> python experiment_setup.py
 
-3. Run Your 16 Experiments --(Then enter the experiment number (1-16) when prompted)
+1. Run Your 16 Experiments --(Then enter the experiment number (1-16) when prompted)
 Run --> python run_single_experiment.py
 
 

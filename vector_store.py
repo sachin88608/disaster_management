@@ -31,6 +31,7 @@ class VectorStore:
     
     def __init__(self):
         self.config = Config()
+        print(f"[DEBUG] Embedding model: {self.config.EMBEDDING_MODEL}")
         self.embedding_model = SentenceTransformer(self.config.EMBEDDING_MODEL)
         self.text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=self.config.CHUNK_SIZE,
@@ -67,10 +68,17 @@ class VectorStore:
     def create_embeddings(self, texts: List[str]) -> List[List[float]]:
         """Create embeddings for a list of texts"""
         try:
+            print(f"[DEBUG] Creating embeddings for batch of size: {len(texts)}")
+            if len(texts) > 0:
+                print(f"[DEBUG] First 3 texts: {[t[:100] for t in texts[:3]]}")
+                print(f"[DEBUG] Lengths: {[len(t) for t in texts[:3]]}")
+            else:
+                print("[DEBUG] Empty batch received for embedding!")
             embeddings = self.embedding_model.encode(texts, show_progress_bar=True)
             return embeddings.tolist()
         except Exception as e:
             logger.error(f"Error creating embeddings: {str(e)}")
+            print(f"[DEBUG] Error creating embeddings: {str(e)}")
             return []
     
     def chunk_documents(self, documents: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
